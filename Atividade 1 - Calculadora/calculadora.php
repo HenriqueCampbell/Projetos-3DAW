@@ -39,10 +39,10 @@
     b:<input type=text name='b'><br>
     <!-- <input type=submit name='operacao' value='soma'> -->
 
-    <button type="submit" name="operacao" value="soma">Somar</button>
-    <button type="submit" name="operacao" value="subtracao">Subtrair</button>
-    <button type="submit" name="operacao" value="multiplicacao">Multiplicar</button>
-    <button type="submit" name="operacao" value="divisao">Dividir</button>
+    <button type="submit" name="operacao" value="soma">Somar (a+b) </button>
+    <button type="submit" name="operacao" value="subtracao">Subtrair (a-b)</button>
+    <button type="submit" name="operacao" value="multiplicacao">Multiplicar (a×b)</button>
+    <button type="submit" name="operacao" value="divisao">Dividir (a÷b)</button>
 
 </form>
 
