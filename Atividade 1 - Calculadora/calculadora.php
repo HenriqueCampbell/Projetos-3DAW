@@ -26,6 +26,9 @@
                 break;
             case 'radiciacao':
                 $resultado = pow($a, 1 / $b);
+                if ($resultado == NAN) {
+                    $resultado = 'Erro: Raiz inválida!';
+                }
                 break;
             default:
                 $resultado = 'Erro na seleção da operação!';
