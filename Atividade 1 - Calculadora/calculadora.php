@@ -21,6 +21,12 @@
                     $resultado = 'Erro: Divisão por zero!';
                 }
                 break;
+            case 'potenciacao':
+                $resultado = pow($a, $b);
+                break;
+            case 'radiciacao':
+                $resultado = pow($a, 1 / $b)
+                break;
             default:
                 $resultado = 'Erro na seleção da operação!';
                 break;
@@ -40,9 +46,11 @@
     <!-- <input type=submit name='operacao' value='soma'> -->
 
     <button type="submit" name="operacao" value="soma">Somar (a+b) </button>
-    <button type="submit" name="operacao" value="subtracao">Subtrair (a-b)</button>
+    <button type="submit" name="operacao" value="subtracao">Subtrair (a-b)</button> <br>
     <button type="submit" name="operacao" value="multiplicacao">Multiplicar (a×b)</button>
-    <button type="submit" name="operacao" value="divisao">Dividir (a÷b)</button>
+    <button type="submit" name="operacao" value="divisao">Dividir (a÷b)</button> <br>
+    <button type="submit" name="operacao" value="potenciacao">Potência (aᵇ)</button>
+    <button type="submit" name="operacao" value="radiciacao"> Raiz (b√a)</button>
 
 </form>
 
