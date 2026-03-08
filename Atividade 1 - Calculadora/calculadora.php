@@ -25,7 +25,7 @@
                 $resultado = pow($a, $b);
                 break;
             case 'radiciacao':
-                $resultado = pow($a, 1 / $b)
+                $resultado = pow($a, 1 / $b);
                 break;
             default:
                 $resultado = 'Erro na seleção da operação!';
