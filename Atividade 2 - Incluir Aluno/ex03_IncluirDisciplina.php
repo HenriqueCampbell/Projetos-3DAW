@@ -1,11 +1,10 @@
 <?php
-    // $msg = "";
+    $msg = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
     $nome = $_POST["nome"];
     $sigla = $_POST["sigla"];
     $carga = $_POST["carga"];
-    $msg = "";
-    echo "nome: " . $nome . " sigla: " . " carga: " . $carga;
+    echo "nome: " . $nome . " sigla: " . $sigla . " carga: " . $carga;
    if (!file_exists("disciplinas.txt")) {
        $arqDisc = fopen("disciplinas.txt","w") or die("erro ao criar arquivo");
        $linha = "nome;sigla;carga\n";

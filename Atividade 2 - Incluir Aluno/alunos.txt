@@ -1,0 +1,4 @@
+matricula;nome;email
+25104708360043;Henrique Campbell;henrique@emailaluno.com.br
+26104708360023;Alisson;alisson@email.edu.br
+20204708360008;Pedro;pedro@email.com
