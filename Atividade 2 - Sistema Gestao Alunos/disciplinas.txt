@@ -1,3 +1,4 @@
 nome;sigla;carga
 Desenvolvimento de Aplicações Web;3DAW;4
 Fundamentos de Algoritmos de Computação;1FAC;4
+Estrutura de Dados;3ESD;4
