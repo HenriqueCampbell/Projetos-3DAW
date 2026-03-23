@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['matricula'])) {
     fclose($arqAluno);
 }
 
+// O html que você fez lá em baixo entra em ação agora!!
+
 // Percorre o arquivo para criar uma cópia atualizada: se a matrícula bater, usa os novos dados; caso contrário, mantém os dados antigos.
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
