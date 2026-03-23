@@ -14,7 +14,7 @@
 </h3>
 
 <table>
-    <tr><th>Matricula</th><th>Nome</th><th>Email</th><th>Ação</th></tr>
+    <tr><th>Matricula</th><th>Nome</th><th>Email</th><th>Edição</th><th>Exclusão</th></tr>
 <?php
 
     // Verifica se o formulário de busca foi submetido e captura o valor da matrícula.
@@ -46,8 +46,10 @@
                 echo "<tr><td>" . $colunaDados[0] . "</td>" .
                      "<td>" . $colunaDados[1] . "</td>" .
                      "<td>" . $colunaDados[2] . "</td>" .
-                     // Gera o link para editar o aluno, passando a matrícula como parâmetro.
-                     "<td><a href='editarAluno.php?matricula=" . $colunaDados[0] . "'>Editar</a></td></tr>";
+                     // Gera o link para editar ou excluir o aluno, passando a matrícula como parâmetro.
+                     "<td><a href='editarAluno.php?matricula=" . $colunaDados[0] . "'>Editar</a></td>" .
+                     "<td><a href='excluirAluno.php?matricula=" . $colunaDados[0] . "'>Excluir</a></td></tr>";
+
             }
         }
     }
