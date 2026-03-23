@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <body>
     <h1>Exclusão de Aluno</h1>
-    <form action="editarAluno.php" method="POST">
+    <form action="excluirAluno.php" method="POST">
         Matrícula: 
         <input type="text" name="matricula" value="<?php echo $matricula; ?>" 
                readonly style="background-color: #dddddd;"> 
