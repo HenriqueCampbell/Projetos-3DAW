@@ -13,15 +13,15 @@
         }
 
         $arqNovo = fopen("disciplinas.txt", "a") or die("Erro ao criar o arquivo.");
-        $linha = $nome . ";" . $sigla . ";" . $peso .;
+        $linha = $nome . ";" . $sigla . ";" . $peso . "\n" ;
 
         fwrite($arqNovo, $linha);
         fclose($arqNovo);
 
-        echo "Disciplina Incluída com Sucesso!"
+        echo "Disciplina Incluída com Sucesso!";
         
     }
->
+?>
 
 <!DOCTYPE html>
 <html>
