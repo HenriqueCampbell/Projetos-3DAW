@@ -12,10 +12,16 @@
             fclose($arqNovo);
         }
 
-        $arqNovo = fopen("disciplinas.txt", "w") or die("Erro ao criar o arquivo.");
+        $arqNovo = fopen("disciplinas.txt", "a") or die("Erro ao criar o arquivo.");
         $linha = $nome . ";" . $sigla . ";" . $peso .;
 
-
         fwrite($arqNovo, $linha);
+        fclose($arqNovo);
+
+        echo "Disciplina Incluída com Sucesso!"
         
     }
+>
+
+<DOCTYPE 
+
