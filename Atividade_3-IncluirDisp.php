@@ -28,7 +28,17 @@
 <head>
 </head>
 
-<body>
-<h1> Incluir Nova Disciplina </h1>
-<form action= Atividade 3 - IncluirDisp.php
+    <body>
+        <h1> Incluir Nova Disciplina </h1>
+            <form action = "Atividade_3-IncluirDisp.php" method = "POST">
+                Nome: <input type="text" name="nome">
+                <br><br>
+                Sigla: <input type="text" name="sigla">
+                <br><br>
+                Peso: <input type="text" name="peso">
+                <br><br>
+                <input type="submit" value="Criar">
 
+            </form>
+    </body>
+</html>
