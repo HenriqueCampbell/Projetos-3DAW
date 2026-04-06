@@ -23,5 +23,12 @@
     }
 >
 
-<DOCTYPE 
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<h1> Incluir Nova Disciplina </h1>
+<form action= Atividade 3 - IncluirDisp.php
 
