@@ -42,6 +42,12 @@
                 echo "Leitura realizada com sucesso."
             ?>
         </table>
+
+        <!-- Sintaxe do a href : Primeiro abre o a, o href vai recerber (=) em aspas simples o string do nome da pagina do destino. Qualquer parametro depois disso fica após o simbolo "?" logo depois do nome da página. tipo assim ?dado=variavel. isso tudo em aspas simples. ai depois coloca o ">" com a palavra do hyperlink e finalmente fecha o <a> -->
+        <p>
+         Clique <a href="incluirProva.html">aqui</a> para ir para a página de inclusão. 
+        </p>
+
     </body>
 </html>
 
