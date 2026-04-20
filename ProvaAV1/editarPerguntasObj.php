@@ -6,7 +6,7 @@
     $r3 = "";
     $r4 = "";
 
-    if (_$SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
+    if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
         $id = $_GET['id'];
         
         $arqPerguntasObj = fopen("perguntasObj.txt", "r") or die ("Erro ao abrir o arquivo");
@@ -26,7 +26,7 @@
             }
         }
 
-        fclose($arqPerguntasObj)
+        fclose($arqPerguntasObj);
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -35,7 +35,7 @@
         $novaR2 = $_POST["r2"];
         $novaR3 = $_POST["r3"];
         $novaR4 = $_POST["r4"];
-        $novoID = $_POST["id"];
+        $id = $_POST["id"];
         $linhasNovas = "";
 
         $arqPerguntasObj = fopen("perguntasObj.txt", "r") or die ("Erro na leitura do arquivo");
@@ -45,22 +45,22 @@
                 $coluna = explode(";", trim($linha));
 
                 if ($coluna[0] == $id) {
-                    $linhasNovas.= $id . ";" . $novaPergunta . ";" $novaR1 . $novaR2 . ";" . $novaR3 . ";" . $novaR4 . "\n";
+                    $linhasNovas.= $id . ";" . $novaPergunta . ";" . $novaR1 . ";" . $novaR2 . ";" . $novaR3 . ";" . $novaR4 . "\n";
                 }
                 else {
                     $linhasNovas .= $linha;
                 }
             }
         }
-    }
-
-    fclose($arqPerguntasObj);
-    $arqEscrita = fopen("perguntasObj.txt", "w");
-    fwrite($arqEscrita, $linhasNovas);
-    fclose($arqEscrita);
+        
+        fclose($arqPerguntasObj);
+        $arqEscrita = fopen("perguntasObj.txt", "w");
+        fwrite($arqEscrita, $linhasNovas);
+        fclose($arqEscrita);
     
-    header("Location: listarPerguntasObj.php")
-    exit();
+         header("Location: listarPerguntasObj.php");
+         exit();
+    }
 
 ?>
 
@@ -70,7 +70,7 @@
     </head>
     <body>
         <h1>Editar Pergunta Objetivas</h1>
-        <form action="editarPerguntaObj.php" method="POST">
+        <form action="editarPerguntasObj.php" method="POST">
             ID: 
             <input type="text" name="id" value="<?php echo $id; ?>"
             readonly style="background-color: #dddddd;">

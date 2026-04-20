@@ -3,7 +3,7 @@
     $pergunta = "";
     $resposta = "";
 
-    if (_$SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
+    if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
         $id = $_GET['id'];
         
         $arqPerguntasSub = fopen("perguntasSub.txt", "r") or die ("Erro ao abrir o arquivo");
@@ -20,13 +20,13 @@
             }
         }
 
-        fclose($arqPerguntasSub)
+        fclose($arqPerguntasSub);
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $novaPergunta = $_POST["pergunta"]; 
         $novaResposta = $_POST["resposta"];
-        $novoID = $_POST["id"];
+        $id = $_POST["id"];
         $linhasNovas = "";
 
         $arqPerguntasSub = fopen("perguntasSub.txt", "r") or die ("Erro na leitura do arquivo");
@@ -36,22 +36,22 @@
                 $coluna = explode(";", trim($linha));
 
                 if ($coluna[0] == $id) {
-                    $linhasNovas.= $id . ";" . $novaPergunta . ";" $novaResposta . "\n";
+                    $linhasNovas.= $id . ";" . $novaPergunta . ";" . $novaResposta . "\n";
                 }
                 else {
                     $linhasNovas .= $linha;
                 }
             }
         }
-    }
 
-    fclose($arqPerguntasSub);
-    $arqEscrita = fopen("perguntasSub.txt", "w");
-    fwrite($arqEscrita, $linhasNovas);
-    fclose($arqEscrita);
+        fclose($arqPerguntasSub);
+        $arqEscrita = fopen("perguntasSub.txt", "w");
+        fwrite($arqEscrita, $linhasNovas);
+        fclose($arqEscrita);
     
-    header("Location: listarPerguntasSub.php")
-    exit();
+        header("Location: listarPerguntasSub.php");
+        exit();
+    }
 
 ?>
 
@@ -61,7 +61,7 @@
     </head>
     <body>
         <h1>Editar Pergunta Subjetiva </h1>
-        <form action="editarPerguntaSub.php" method="POST">
+        <form action="editarPerguntasSub.php" method="POST">
             ID: 
             <input type="text" name="id" value="<?php echo $id; ?>"
             readonly style="background-color: #dddddd;">
