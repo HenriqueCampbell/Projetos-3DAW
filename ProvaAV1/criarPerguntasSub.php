@@ -1,5 +1,5 @@
 <?php
-    if ($_SERVER['REQUEST METHOD'] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $id = $_POST["id"];
         $pergunta = $_POST["pergunta"];
         $resposta = $_POST["resposta"];
@@ -7,7 +7,7 @@
         if (!file_exists("perguntasSub.txt")) {
             $arqPerguntasSub = fopen("perguntasSub.txt", "w") or die ("Erro ao criar o arquivo");
             $linha = ("id;pergunta;resposta");
-            fwrite($arqPerguntasSub, $linha)
+            fwrite($arqPerguntasSub, $linha);
             fclose($arqPerguntasSub);
         }
 
@@ -15,7 +15,7 @@
         $linha = $id . ";" . $pergunta . ";" . $resposta . "\n";
         fwrite($arqPerguntasSub, $linha);
         fclose($arqPerguntasSub);
-        echo "Pergunta Criada com Sucesso"
+        echo "Pergunta Criada com Sucesso";
     }
 ?>
 

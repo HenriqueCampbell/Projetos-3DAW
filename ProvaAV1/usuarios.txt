@@ -1,1 +1,3 @@
-nome;email;telefoneHenrique Campbell Trechau;henrique@email.com;(21) 98153-8972
+nome;email;telefone
+Henrique;henrique@email.com;(21) 98152-7383
+Igor;igor@email.com;(21) 96723-0232

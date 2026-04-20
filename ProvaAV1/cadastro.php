@@ -7,7 +7,7 @@
 
         if (!file_exists("usuarios.txt")) {
             $arqUsuarios = fopen("usuarios.txt", "w") or die ("Erro ao criar o arquivo");
-            $linha = ("nome;email;telefone");
+            $linha = ("nome;email;telefone\n");
             fwrite($arqUsuarios, $linha);
             fclose($arqUsuarios);
         }
