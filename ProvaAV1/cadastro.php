@@ -1,5 +1,5 @@
 <?php
-    if ($_SERVER['REQUEST METHOD'] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $nome = $_POST["nome"];
         $email = $_POST["email"];
         $telefone = $_POST["telefone"];
@@ -8,7 +8,7 @@
         if (!file_exists("usuarios.txt")) {
             $arqUsuarios = fopen("usuarios.txt", "w") or die ("Erro ao criar o arquivo");
             $linha = ("nome;email;telefone");
-            fwrite($arqUsuarios, $linha)
+            fwrite($arqUsuarios, $linha);
             fclose($arqUsuarios);
         }
 
@@ -16,7 +16,7 @@
         $linha = $nome . ";" . $email . ";" . $telefone . "\n";
         fwrite($arqUsuarios, $linha);
         fclose($arqUsuarios);
-        echo "Cadastro concluído com sucesso."
+        echo "Cadastro concluído com sucesso.";
     }
 ?>
 
