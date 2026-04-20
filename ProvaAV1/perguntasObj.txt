@@ -1,0 +1,1 @@
+id;pergunta;r1;r2;r3;r401;Qual é dessas não é uma intergrante da banda Katseye?;Ilya;Manon;Sophia;Lara
