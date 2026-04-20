@@ -23,28 +23,70 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <h1> Criar Nova Pergunta Obejtiva</h1>
-        <form action = "criarPerguntasObj.php" method = "POST">
-            id: <input type ="text" name="id"> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Pergunta Objetiva</title>
+</head>
+<body>
+
+    <header>
+        <h1>Criar Nova Pergunta Objetiva</h1>
+    </header>
+
+    <main>
+        <form action="criarPerguntasObj.php" method="POST">
+            <fieldset>
+                <legend>Dados da Pergunta</legend>
+
+                <p>
+                    <label for="id_pergunta">ID da Pergunta:</label><br>
+                    <input type="text" id="id_pergunta" name="id" placeholder="01 até 99" required>
+                </p>
+
+                <p>
+                    <label for="txt_pergunta">Enunciado da Pergunta:</label><br>
+                    <textarea id="txt_pergunta" name="pergunta" rows="3" cols="40" placeholder="Digite aqui o enunciado da questão" required></textarea>
+                </p>
+            </fieldset>
+
             <br>
-            Pergunta Objetiva: <input type ="text" name="pergunta">
+
+            <fieldset>
+                <legend>Alternativas</legend>
+
+                <p>
+                    <label for="id_r1"><strong>Alternativa Correta:</strong></label><br>
+                    <input type="text" id="id_r1" name="r1" placeholder="Resposta que pontua" required size="40">
+                </p>
+
+                <p>
+                    <label for="id_r2">Alternativa Incorreta 1:</label><br>
+                    <input type="text" id="id_r2" name="r2" size="40">
+                </p>
+
+                <p>
+                    <label for="id_r3">Alternativa Incorreta 2:</label><br>
+                    <input type="text" id="id_r3" name="r3" size="40">
+                </p>
+
+                <p>
+                    <label for="id_r4">Alternativa Incorreta 3:</label><br>
+                    <input type="text" id="id_r4" name="r4" size="40">
+                </p>
+            </fieldset>
+
             <br>
-            Alternativa Correta: <input type = "text" name="r1">
-            <br>
-            Alternativa Incorreta 1: <input type = "text" name="r2">
-            <br>
-            Alternativa Incorreta 2: <input type = "text" name="r3">
-            <br>
-            Alternativa Incorreta 3: <input type = "text" name="r4">
-            <br>
-            <input type = "submit" value="Enviar">
+            <button type="submit">Salvar Pergunta</button>
+            <button type="reset">Limpar Tudo</button>
         </form>
-        <p>
-            <a href="index.php">Retornar a página inicial</a>
-        </p>
-    </body>
+    </main>
+
+    <hr>
+
+    <nav>
+        <a href="index.php">⬅ Voltar para o Menu Principal</a>
+    </nav>
+
+</body>
 </html>
