@@ -65,40 +65,75 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <h1>Editar Pergunta Objetivas</h1>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Pergunta Objetiva</title>
+</head>
+<body>
+
+    <header>
+        <h1>Editar Pergunta Objetiva</h1>
+        <p>Altere os campos necessários.</p>
+    </header>
+
+    <main>
         <form action="editarPerguntasObj.php" method="POST">
-            ID: 
-            <input type="text" name="id" value="<?php echo $id; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            Pergunta: 
-            <input type="text" name="pergunta" value="<?php echo $pergunta; ?>">
-            <br><br>
-            
-            Alternativa Correta: 
-            <input type="text" name="r1" value="<?php echo $r1; ?>">
-            <br><br>
+            <fieldset>
+                <legend>Identificação</legend>
+                <p>
+                    <label for="id_edit">ID da Questão (Não editável):</label><br>
+                    <input type="text" id="id_edit" name="id" value="<?php echo $id; ?>" 
+                           readonly style="background-color: #dddddd; cursor: not-allowed;">
+                </p>
+            </fieldset>
 
-            Alternativa Incorreta 1: 
-            <input type="text" name="r2" value="<?php echo $r2; ?>">
-            <br><br>
+            <br>
 
-            Alternativa Incorreta 2: 
-            <input type="text" name="r3" value="<?php echo $r3; ?>">
-            <br><br>
+            <fieldset>
+                <legend>Conteúdo da Pergunta</legend>
+                <p>
+                    <label for="pergunta_edit">Enunciado:</label><br>
+                    <textarea id="pergunta_edit" name="pergunta" rows="3" cols="50" style="resize: none;" required><?php echo $pergunta; ?></textarea>
+                </p>
+            </fieldset>
 
-            Alternativa Incorreta 3: 
-            <input type="text" name="r4" value="<?php echo $r4; ?>">
-            <br><br>
-            
-            <input type="submit" value="Salvar Alterações">
+            <br>
+
+            <fieldset>
+                <legend>Alternativas</legend>
+                <p>
+                    <label for="r1_edit"><strong>Alternativa Correta:</strong></label><br>
+                    <input type="text" id="r1_edit" name="r1" value="<?php echo $r1; ?>" size="40" required>
+                </p>
+
+                <p>
+                    <label for="r2_edit">Alternativa Incorreta 1:</label><br>
+                    <input type="text" id="id_r2" name="r2" value="<?php echo $r2; ?>" size="40">
+                </p>
+
+                <p>
+                    <label for="r3_edit">Alternativa Incorreta 2:</label><br>
+                    <input type="text" id="id_r3" name="r3" value="<?php echo $r3; ?>" size="40">
+                </p>
+
+                <p>
+                    <label for="r4_edit">Alternativa Incorreta 3:</label><br>
+                    <input type="text" id="id_r4" name="r4" value="<?php echo $r4; ?>" size="40">
+                </p>
+            </fieldset>
+
+            <br>
+            <button type="submit">💾 Salvar Alterações</button>
+
         </form>
-        <br>
-        <a href="listarPerguntasObj.php">Voltar para a lista</a>
-    </body>
+    </main>
+
+    <hr>
+
+    <nav>
+        <a href="listarPerguntasObj.php">⬅ Voltar para a lista</a>
+    </nav>
+
+</body>
 </html>

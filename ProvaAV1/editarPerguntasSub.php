@@ -56,28 +56,54 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <h1>Editar Pergunta Subjetiva </h1>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Pergunta Subjetiva</title>
+</head>
+<body>
+
+    <header>
+        <h1>Editar Pergunta Subjetiva</h1>
+        <p>Altere os campos necessários.</p>
+    </header>
+
+    <main>
         <form action="editarPerguntasSub.php" method="POST">
-            ID: 
-            <input type="text" name="id" value="<?php echo $id; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            Pergunta: 
-            <input type="text" name="pergunta" value="<?php echo $pergunta; ?>">
-            <br><br>
-            
-            Modelo de Resposta: 
-            <input type="text" name="resposta" value="<?php echo $resposta; ?>">
-            <br><br>
-            
-            <input type="submit" value="Salvar Alterações">
+            <fieldset>
+                <legend>Identificação</legend>
+                <p>
+                    <label for="id_edit">ID da Questão (Não editável):</label><br>
+                    <input type="text" id="id_edit" name="id" value="<?php echo $id; ?>" 
+                           readonly style="background-color: #dddddd; cursor: not-allowed;">
+                </p>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Conteúdo da Pergunta</legend>
+                <p>
+                    <label for="pergunta_edit">Enunciado:</label><br>
+                    <textarea id="pergunta_edit" name="pergunta" rows="5" cols="60" style="resize: none;" required><?php echo $pergunta; ?></textarea>
+                </p>
+
+                <p>
+                    <label for="resposta_edit">Modelo de Resposta:</label><br>
+                    <textarea id="resposta_edit" name="resposta" rows="4" cols="60" style="resize: none;"><?php echo $resposta; ?></textarea>
+                </p>
+            </fieldset>
+
+            <br>
+            <button type="submit">💾 Salvar Alterações</button>
         </form>
-        <br>
-        <a href="listarPerguntasSub.php">Voltar para a lista</a>
-    </body>
+    </main>
+
+    <hr>
+
+    <nav>
+        <a href="listarPerguntasSub.php">⬅ Voltar para a lista</a>
+    </nav>
+
+</body>
 </html>
