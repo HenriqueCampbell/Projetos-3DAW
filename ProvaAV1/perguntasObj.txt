@@ -1,4 +1,4 @@
 id;pergunta;r1;r2;r3;r4
 01;Qual dessas NÃO é uma integrante da banda Katseye;Illya;Manon;Lara;Sophia
 02;Qual o último nome do navegador europeu que encontrou terras Brasileiras?;Cabral;Cabrel;Cabril;Cabrol
-03;Quantos anos tinha o Michael Jackson quando ele morreu?;50;49;48;51
+03;Quantos anos tinha o Michael Jackson quando ele morreu?;50;48;51;49

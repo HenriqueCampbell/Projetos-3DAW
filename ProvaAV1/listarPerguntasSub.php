@@ -22,8 +22,8 @@
                     if (trim($linha) != "") { 
                         $coluna = explode(";", $linha); 
                         echo "<tr><td>" . $coluna[0] . "</td><td>" . $coluna[1] . "</dh><td>" . $coluna[2] . 
-                        "</td><td>  <a href='editarPerguntaSub.php?id=" . $coluna[0] . "'>Editar</a></td>" .
-                        "<td>  <a href='excluirPerguntaSub.php'?id=" . $coluna[0] . "'>Excluir</a></td></tr>";
+                        "</td><td>  <a href='editarPerguntasSub.php?id=" . $coluna[0] . "'>Editar</a></td>" .
+                        "<td>  <a href='excluirPerguntasSub.php?id=" . $coluna[0] . "'>Excluir</a></td></tr>";
                     }
 
                 }

@@ -23,7 +23,7 @@
                         $coluna = explode(";", $linha); 
                         echo "<tr><td>" . $coluna[0] . "</td><td>" . $coluna[1] . "</td><td>" . $coluna[2] . "</td><td>".   $coluna[3] . "</td><td>" . $coluna[4] . "</td><td>" . $coluna[5] . 
                         "</td><td>  <a href='editarPerguntasObj.php?id=" . $coluna[0] . "'>Editar</a></td>" .
-                        "<td>  <a href='excluirPerguntasObj.php'?id=" . $coluna[0] . "'>Excluir</a></td></tr>";
+                        "<td>  <a href='excluirPerguntasObj.php?id=" . $coluna[0] . "'>Excluir</a></td></tr>";
                     }
 
                 }

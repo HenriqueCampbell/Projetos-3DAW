@@ -6,7 +6,7 @@
     $r3 = "";
     $r4 = "";
 
-    if (_$SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
+    if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
         $id = $_GET['id'];
         
         $arqPerguntasObj = fopen("perguntasObj.txt", "r") or die ("Erro ao abrir o arquivo");
@@ -26,10 +26,11 @@
             }
         }
 
-        fclose($arqPerguntasObj)
+        fclose($arqPerguntasObj);
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        $id = $_POST['id'];
         $linhasNovas = "";
 
         $arqPerguntasObj = fopen("perguntasObj.txt", "r") or die ("Erro na leitura do arquivo");
@@ -46,15 +47,15 @@
                 }
             }
         }
-    }
 
-    fclose($arqPerguntasObj);
-    $arqEscrita = fopen("perguntasObj.txt", "w");
-    fwrite($arqEscrita, $linhasNovas);
-    fclose($arqEscrita);
+        fclose($arqPerguntasObj);
+        $arqEscrita = fopen("perguntasObj.txt", "w");
+        fwrite($arqEscrita, $linhasNovas);
+        fclose($arqEscrita);
     
-    header("Location: listarPerguntasObj.php")
-    exit();
+        header("Location: listarPerguntasObj.php");
+        exit();
+    }
 
 ?>
 
@@ -64,7 +65,7 @@
     </head>
     <body>
         <h1>Excluir Pergunta Objetiva</h1>
-        <form action="excluirPerguntaObj.php" method="POST">
+        <form action="excluirPerguntasObj.php" method="POST">
             ID: 
             <input type="text" name="id" value="<?php echo $id; ?>"
             readonly style="background-color: #dddddd;">

@@ -3,7 +3,7 @@
     $pergunta = "";
     $resposta = "";
 
-    if (_$SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
+    if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
         $id = $_GET['id'];
         
         $arqPerguntasSub = fopen("perguntasSub.txt", "r") or die ("Erro ao abrir o arquivo");
@@ -20,11 +20,11 @@
             }
         }
 
-        fclose($arqPerguntasSub)
+        fclose($arqPerguntasSub);
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        
+        $id = $_POST['id'];
         $linhasNovas = "";
 
         $arqPerguntasSub = fopen("perguntasSub.txt", "r") or die ("Erro na leitura do arquivo");
@@ -41,15 +41,16 @@
                 }
             }
         }
+        
+        fclose($arqPerguntasSub);
+        $arqEscrita = fopen("perguntasSub.txt", "w");
+        fwrite($arqEscrita, $linhasNovas);
+        fclose($arqEscrita);
+    
+        header("Location: listarPerguntasSub.php");
+        exit();
     }
 
-    fclose($arqPerguntasSub);
-    $arqEscrita = fopen("perguntasSub.txt", "w");
-    fwrite($arqEscrita, $linhasNovas);
-    fclose($arqEscrita);
-    
-    header("Location: listarPerguntasSub.php")
-    exit();
 
 ?>
 
@@ -59,7 +60,7 @@
     </head>
     <body>
         <h1>Excluir Pergunta Subjetiva </h1>
-        <form action="editarPerguntaSub.php" method="POST">
+        <form action="excluirPerguntasSub.php" method="POST">
             ID: 
             <input type="text" name="id" value="<?php echo $id; ?>"
             readonly style="background-color: #dddddd;">
