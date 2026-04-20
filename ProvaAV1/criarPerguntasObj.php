@@ -28,7 +28,7 @@
     </head>
     <body>
         <h1> Criar Nova Pergunta Obejtiva</h1>
-        <form action = "criarPerguntaObj.php" method = "POST">
+        <form action = "criarPerguntasObj.php" method = "POST">
             id: <input type ="text" name="id"> 
             <br>
             Pergunta Objetiva: <input type ="text" name="pergunta">
