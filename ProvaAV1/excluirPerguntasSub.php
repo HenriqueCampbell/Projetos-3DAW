@@ -55,31 +55,59 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <h1>Excluir Pergunta Subjetiva </h1>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Exclusão</title>
+</head>
+<body>
+
+    <header>
+        <h1 style="color: red;">Excluir Pergunta Subjetiva</h1>
+        <p>Verifique os dados abaixo antes de confirmar a remoção definitiva.</p>
+    </header>
+
+    <main>
         <form action="excluirPerguntasSub.php" method="POST">
-            ID: 
-            <input type="text" name="id" value="<?php echo $id; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            Pergunta: 
-            <input type="text" name="pergunta" value="<?php echo $pergunta; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            Modelo de Resposta: 
-            <input type="text" name="resposta" value="<?php echo $resposta; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            <input type="submit" value="Excluir Pergunta">
-            <p> Atenção essa ação não poderá ser desfeita! </p>
+            <fieldset style="background-color: #f9f9f9; border: 1px solid #ccc;">
+                <legend>Dados da Questão</legend>
+
+                <p>
+                    <label>ID:</label><br>
+                    <input type="text" name="id" value="<?php echo $id; ?>" 
+                           readonly style="background-color: #dddddd; cursor: not-allowed;">
+                </p>
+
+                <p>
+                    <label>Enunciado da Pergunta:</label><br>
+                    <textarea rows="4" cols="60" readonly 
+                              style="background-color: #dddddd; cursor: not-allowed; resize: none;"><?php echo $pergunta; ?></textarea>
+                </p>
+
+                <p>
+                    <label>Modelo de Resposta:</label><br>
+                    <textarea rows="3" cols="60" readonly 
+                              style="background-color: #dddddd; cursor: not-allowed; resize: none;"><?php echo $resposta; ?></textarea>
+                </p>
+            </fieldset>
+
+            <div style="background-color: #ffe6e6; padding: 15px; border-left: 5px solid red; margin: 20px 0;">
+                <strong>⚠️ ATENÇÃO:</strong> Esta ação não poderá ser desfeita!
+            </div>
+
+            <button type="submit" style="background-color: #ff4d4d; color: white; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                Excluir Pergunta
+            </button>
         </form>
-        <br>
-        <a href="listarPerguntasSub.php">Voltar para a lista</a>
-    </body>
+    </main>
+
+    <hr>
+
+    <nav>
+        <p>
+            <a href="listarPerguntasSub.php">⬅ Cancelar e voltar para a lista</a>
+        </p>
+    </nav>
+
+</body>
 </html>

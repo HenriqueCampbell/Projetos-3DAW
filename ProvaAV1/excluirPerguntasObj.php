@@ -60,46 +60,58 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <h1>Excluir Pergunta Objetiva</h1>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Exclusão</title>
+</head>
+<body>
+
+    <header>
+        <h1 style="color: red;">Excluir Pergunta Objetiva</h1>
+        <p>Verifique os dados abaixo antes de confirmar a remoção definitiva.</p>
+    </header>
+
+    <main>
         <form action="excluirPerguntasObj.php" method="POST">
-            ID: 
-            <input type="text" name="id" value="<?php echo $id; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            Pergunta: 
-            <input type="text" name="pergunta" value="<?php echo $pergunta; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            Alternativa Correta: 
-            <input type="text" name="r1" value="<?php echo $r1; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
+            <fieldset style="background-color: #f9f9f9; border: 1px solid #ccc;">
+                <legend>Dados da Pergunta</legend>
 
-            Alternativa Incorreta 1: 
-            <input type="text" name="r2" value="<?php echo $r2; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
+                <p>
+                    <label>ID:</label><br>
+                    <input type="text" name="id" value="<?php echo $id; ?>" readonly style="background-color: #dddddd; cursor: not-allowed;">
+                </p>
 
-            Alternativa Incorreta 2: 
-            <input type="text" name="r3" value="<?php echo $r3; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
+                <p>
+                    <label>Enunciado:</label><br>
+                    <textarea rows="3" cols="50" readonly style="background-color: #dddddd; cursor: not-allowed; resize: none;"><?php echo $pergunta; ?></textarea>
+                    <input type="hidden" name="pergunta" value="<?php echo $pergunta; ?>">
+                </p>
 
-            Alternativa Incorreta 3: 
-            <input type="text" name="r4" value="<?php echo $r4; ?>"
-            readonly style="background-color: #dddddd;">
-            <br><br>
-            
-            <input type="submit" value="Excluir Pergunta">
-            <p> Atenção essa ação não poderá ser desfeita! </p>
+                <p>
+                    <label>Alternativas (Correta / Incorretas):</label><br>
+                    <input type="text" name="r1" value="<?php echo $r1; ?>" readonly style="background-color: #dddddd; margin-bottom: 5px;"><br>
+                    <input type="text" name="r2" value="<?php echo $r2; ?>" readonly style="background-color: #dddddd; margin-bottom: 5px;"><br>
+                    <input type="text" name="r3" value="<?php echo $r3; ?>" readonly style="background-color: #dddddd; margin-bottom: 5px;"><br>
+                    <input type="text" name="r4" value="<?php echo $r4; ?>" readonly style="background-color: #dddddd;">
+                </p>
+            </fieldset>
+
+            <div style="background-color: #ffe6e6; padding: 10px; border-left: 5px solid red; margin: 20px 0;">
+                <strong>⚠️ ATENÇÃO:</strong> Esta ação não poderá ser desfeita!
+            </div>
+
+            <button type="submit" style="background-color: #ff4d4d; color: white; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                Excluir Pergunta
+            </button>
         </form>
-        <br>
-        <a href="listarPerguntasObj.php">Voltar para a lista</a>
-    </body>
+    </main>
+
+    <hr>
+
+    <nav>
+        <a href="listarPerguntasObj.php">⬅ Cancelar e Voltar para a lista</a>
+    </nav>
+
+</body>
 </html>
