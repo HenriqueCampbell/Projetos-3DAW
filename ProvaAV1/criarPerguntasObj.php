@@ -9,7 +9,7 @@
 
         if (!file_exists("perguntasObj.txt")) {
             $arqPerguntasObj = fopen("perguntasObj.txt", "w") or die ("Erro ao criar o arquivo");
-            $linha = ("id;pergunta;r1;r2;r3;r4");
+            $linha = ("id;pergunta;r1;r2;r3;r4\n");
             fwrite($arqPerguntasObj, $linha);
             fclose($arqPerguntasObj);
         }

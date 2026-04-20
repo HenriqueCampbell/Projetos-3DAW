@@ -1,1 +1,4 @@
-id;pergunta;r1;r2;r3;r401;Qual é dessas não é uma intergrante da banda Katseye?;Ilya;Manon;Sophia;Lara
+id;pergunta;r1;r2;r3;r4
+01;Qual dessas NÃO é uma integrante da banda Katseye;Illya;Manon;Lara;Sophia
+02;Qual o último nome do navegador europeu que encontrou terras Brasileiras?;Cabral;Cabrel;Cabril;Cabrol
+03;Quantos anos tinha o Michael Jackson quando ele morreu?;50;49;48;51
