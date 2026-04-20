@@ -6,7 +6,7 @@
 
         if (!file_exists("perguntasSub.txt")) {
             $arqPerguntasSub = fopen("perguntasSub.txt", "w") or die ("Erro ao criar o arquivo");
-            $linha = ("id;pergunta;resposta");
+            $linha = ("id;pergunta;resposta\n");
             fwrite($arqPerguntasSub, $linha);
             fclose($arqPerguntasSub);
         }
@@ -25,7 +25,7 @@
     </head>
     <body>
         <h1> Criar Nova Pergunta </h1>
-        <form action = "cadastro.php" method = "POST">
+        <form action = "criarPerguntasSub.php" method = "POST">
             id: <input type ="text" name="id"> 
             <br>
             Pergunta Subjetiva: <input type ="text" name="pergunta">

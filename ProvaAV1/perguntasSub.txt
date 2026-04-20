@@ -1,0 +1,4 @@
+id;pergunta;resposta
+01;Quais impactos da IA na sociedade?;Substituição de empregos, consumo excessivo de energia e água em data centers, e a perda da criatividade humana.
+02;Liste, EM ORDEM do tom mais vermelho pro mais violeta, as cores do arco-íris.;vermelho, laranja, amarelo, verde, azul, anil e violeta.
+03;Qual foi o impacto do fordismo na revolução industrial?;Melhorou a eficiência da produção, e também alterou a dinâmica do trabalho, com a especialização dos operários em tarefas específicas, o que aumentou a produtividade.
