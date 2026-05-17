@@ -9,14 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Erro: Dados inválidos detectados no servidor.");
     }
 
-    if (!file_exists("../Atividade%202%20-%20Sistema%20Gestao%20Alunos/alunos.txt")) {
-        $arqAluno = fopen("../Atividade%202%20-%20Sistema%20Gestao%20Alunos/alunos.txt", "w") or die("erro ao criar arquivo");
+    // A página de listar está em outro repositório.
+    $caminhoArquivo = "../Atividade 2 - Sistema Gestao Alunos/alunos.txt";
+    if (!file_exists($caminhoArquivo)) {
+        $arqAluno = fopen($caminhoArquivo, "w") or die("erro ao criar arquivo");
         $linha = "matricula;nome;email\n";
         fwrite($arqAluno, $linha);
         fclose($arqAluno);
     }
 
-    $arqAluno = fopen("../Atividade%202%20-%20Sistema%20Gestao%20Alunos/alunos.txt", "a") or die("erro ao abrir arquivo");
+    $arqAluno = fopen($caminhoArquivo, "a") or die("erro ao abrir arquivo");
     $linha = $matricula . ";" . $nome . ";" . $email . "\n";
     fwrite($arqAluno, $linha);
     fclose($arqAluno);
