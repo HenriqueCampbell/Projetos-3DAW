@@ -1,6 +1,7 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         
+        // Recebe o JSON do JavaScript
         $jsonBruto = file_get_contents('php://input');
         $novoUsuario = json_decode($jsonBruto, true);
         
