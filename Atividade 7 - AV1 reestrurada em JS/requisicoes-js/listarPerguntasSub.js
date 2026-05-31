@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         perguntas.forEach(pergunta => {
             const linha = document.createElement('tr');
             
-            // Monta as colunas usando os nomes das variáveis do seu JSON
+            // Monta as colunas usando os nomes das variáveis do JSON
             linha.innerHTML = `
                 <td>${pergunta.id}</td>
                 <td>${pergunta.pergunta}</td>
@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td><a href='excluirPerguntasSub.php?id=${pergunta.id}'>❌ Excluir</a></td>
             `;
             
-            // Gruda a linha na tabela
             corpoTabela.appendChild(linha);
         });
         
