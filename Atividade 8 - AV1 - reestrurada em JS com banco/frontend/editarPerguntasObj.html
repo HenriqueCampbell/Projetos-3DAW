@@ -68,14 +68,17 @@
     </nav>
 
     <script>
+        // Lógica para carregar os dados da pergunta objetiva a ser editada usando o ID passado por query string
         const urlParams = new URLSearchParams(window.location.search);
         const idBuscado = urlParams.get('id');
         const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/editarPerguntasObj.php';
 
+        // Se o ID for encontrado na query string, buscamos os dados para preencher o formulário (procurando os dados da pergunta específica do ID)
         if (idBuscado) {
             fetch(`${urlBackend}?id=${idBuscado}`)
             .then(resposta => resposta.json())
             .then(dados => {
+                // Se a resposta for sucesso, preenchemos os campos do formulário com os dados retornados
                 if(dados.status === 'sucesso') {
                     document.getElementById('id_edit').value = dados.pergunta.id_pergunta;
                     document.getElementById('pergunta_edit').value = dados.pergunta.enunciado;
@@ -90,9 +93,10 @@
             .catch(erro => console.error('Erro:', erro));
         }
 
+        // Lógica para enviar os dados editados da pergunta objetiva para o backend usando POST
         document.getElementById('formEditarObj').addEventListener('submit', function(event) {
             event.preventDefault();
-
+            
             const id = document.getElementById('id_edit').value;
             const pergunta = document.getElementById('pergunta_edit').value;
             const r1 = document.getElementById('r1_edit').value;

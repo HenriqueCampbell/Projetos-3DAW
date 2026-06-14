@@ -43,6 +43,7 @@
             
             const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/listarPerguntasObj.php';
 
+            // Lógica para buscar as perguntas objetivas do backend e preencher a tabela
             fetch(urlBackend)
             .then(resposta => resposta.json())
             .then(perguntas => {
@@ -54,6 +55,7 @@
                     return; 
                 }
 
+                // Loop que percorre as perguntas retornadas e cria uma linha na tabela para cada pergunta objetiva
                 perguntas.forEach(pergunta => {
                     const linha = document.createElement('tr');
                     

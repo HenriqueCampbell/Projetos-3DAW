@@ -56,10 +56,12 @@
         const idBuscado = urlParams.get('id');
         const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/excluirPerguntasObj.php';
 
+        // Se o ID for encontrado na query string, buscamos os dados para preencher o formulário (procurando os dados da pergunta específica do ID)
         if (idBuscado) {
             fetch(`${urlBackend}?id=${idBuscado}`)
             .then(resposta => resposta.json())
             .then(dados => {
+                // Se a resposta for sucesso, preenchemos os campos do formulário com os dados retornados
                 if(dados.status === 'sucesso') {
                     document.getElementById('id_excluir').value = dados.pergunta.id_pergunta;
                     document.getElementById('pergunta_excluir').value = dados.pergunta.enunciado;
@@ -74,6 +76,7 @@
             .catch(erro => console.error('Erro:', erro));
         }
 
+        // Lógica para enviar a solicitação de exclusão da pergunta objetiva para o backend usando POST
         document.getElementById('formExcluirObj').addEventListener('submit', function(event) {
             event.preventDefault();
             

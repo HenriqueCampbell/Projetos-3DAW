@@ -9,6 +9,7 @@ $banco = "sistema_perguntas";
 $usuarioDB = "root";
 $senhaDB = "";
 
+// Conexão com o banco de dados usando PDO
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utf8", $usuarioDB, $senhaDB);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,6 +28,7 @@ try {
         exit;
     }
 
+    // Lógica para atualizar a pergunta objetiva usando POST para receber os dados editados pelo frontend
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $jsonBruto = file_get_contents('php://input');
         $dadosEditados = json_decode($jsonBruto, true);
@@ -50,6 +52,7 @@ try {
         exit;
     }
 
+    // Se a requisição não for GET ou POST, ou se faltar o ID para GET, retornamos um erro
 } catch(PDOException $e) {
     echo json_encode(["status" => "erro", "mensagem" => $e->getMessage()]);
     exit;
