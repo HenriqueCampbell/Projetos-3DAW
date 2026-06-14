@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Pergunta Objetiva</title>
+</head>
+<body>
+
+    <header>
+        <h1>Criar Nova Pergunta Objetiva</h1>
+    </header>
+
+    <main>
+        <form id="formPergunta">
+            <fieldset>
+                <legend>Dados da Pergunta</legend>
+
+                <p>
+                    <label for="id_pergunta">ID da Pergunta:</label><br>
+                    <input type="text" id="id_pergunta" name="id" placeholder="01 até 99" required>
+                </p>
+
+                <p>
+                    <label for="txt_pergunta">Enunciado da Pergunta:</label><br>
+                    <textarea id="txt_pergunta" name="pergunta" rows="3" cols="40" placeholder="Digite aqui o enunciado da questão" required></textarea>
+                </p>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Alternativas</legend>
+
+                <p>
+                    <label for="id_r1"><strong>Alternativa Correta:</strong></label><br>
+                    <input type="text" id="id_r1" name="r1" placeholder="Resposta que pontua" required size="40">
+                </p>
+
+                <p>
+                    <label for="id_r2">Alternativa Incorreta 1:</label><br>
+                    <input type="text" id="id_r2" name="r2" size="40">
+                </p>
+
+                <p>
+                    <label for="id_r3">Alternativa Incorreta 2:</label><br>
+                    <input type="text" id="id_r3" name="r3" size="40">
+                </p>
+
+                <p>
+                    <label for="id_r4">Alternativa Incorreta 3:</label><br>
+                    <input type="text" id="id_r4" name="r4" size="40">
+                </p>
+            </fieldset>
+
+            <br>
+            <button type="submit">Salvar Pergunta</button>
+            <button type="reset">Limpar Tudo</button>
+        </form>
+    </main>
+
+    <hr>
+
+    <nav>
+        <a href="../index.html">⬅ Voltar para o Menu Principal</a>
+    </nav>
+
+    <script>
+        document.getElementById('formPergunta').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Captura de dados dos campos do formulário
+            const id = document.querySelector('input[name="id"]').value;
+            const pergunta = document.querySelector('textarea[name="pergunta"]').value;
+            const r1 = document.querySelector('input[name="r1"]').value;
+            const r2 = document.querySelector('input[name="r2"]').value;
+            const r3 = document.querySelector('input[name="r3"]').value;
+            const r4 = document.querySelector('input[name="r4"]').value;
+
+            // Agrupa os dados em um objeto para o envio
+            const dadosFormulario = { id, pergunta, r1, r2, r3, r4 };
+
+            const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/criarPerguntasObj.php';
+
+            // Realiza a requisição POST enviando os dados em formato JSON
+            fetch(urlBackend, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dadosFormulario)
+            })
+            .then(resposta => {
+                if (!resposta.ok) throw new Error('Erro na resposta do servidor');
+                return resposta.json();
+            })
+            .then(dados => {
+                // Analisa a resposta do PHP e dá o feedback visual
+                if(dados.status === 'sucesso') {
+                    alert(dados.mensagem); 
+                    document.getElementById('formPergunta').reset(); // Limpa os campos após o sucesso
+                } else {
+                    alert('Erro: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => {
+                console.error('Erro no Fetch:', erro);
+                alert('Erro na comunicação com o servidor.');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+
+    <header>
+        <h1>Novo Cadastro de Usuário</h1>
+        <p>Preencha os campos abaixo para registrar um novo perfil.</p>
+    </header>
+
+    <main>
+        <form id="formCadastro">
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+
+                <p>
+                    <label for="id_nome">Nome:</label><br>
+                    <input type="text" id="id_nome" name="nome" placeholder="Ex: João Silva" required>
+                </p>
+
+                <p>
+                    <label for="id_email">E-mail:</label><br>
+                    <input type="email" id="id_email" name="email" placeholder="nome@exemplo.com" required>
+                </p>
+
+                <p>
+                    <label for="id_tel">Telefone:</label><br>
+                    <input type="tel" id="id_tel" name="telefone" placeholder="(21) 99999-9999">
+                </p>
+
+                <button type="submit">Finalizar Cadastro</button>
+                <button type="reset">Limpar Campos</button>
+            </fieldset>
+        </form>
+    </main>
+
+    <nav>
+        <p>
+            <a href="../index.html">⬅ Voltar para o Menu Principal</a>
+        </p>
+    </nav>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            // Intercepta a submissão padrão da página para gerenciar o envio via API
+            event.preventDefault(); 
+
+            // Extração dos valores dos campos do formulário
+            const nome = document.querySelector('input[name="nome"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const telefone = document.querySelector('input[name="telefone"]').value;
+
+            // Estruturação do payload de envio
+            const dadosFormulario = { nome, email, telefone };
+
+            // Endpoint de destino da API (Backend)
+            const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/cadastro.php';
+
+            // Requisição assíncrona POST
+            fetch(urlBackend, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosFormulario)
+            })
+            .then(resposta => {
+                // Validação do status HTTP da resposta
+                if (!resposta.ok) throw new Error('Falha de resposta do servidor HTTP');
+                return resposta.json();
+            })
+            .then(dados => {
+                // Tratamento do retorno da API
+                if(dados.status === 'sucesso') {
+                    alert(dados.mensagem);
+                    document.querySelector('form').reset(); 
+                } else {
+                    alert('Falha na transação: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => {
+                // Tratamento de exceções (falha de rede, CORS ou servidor offline)
+                console.error('Exceção capturada no fetch:', erro);
+                alert('Falha na comunicação com a API. Verifique o status do servidor.');
+            });
+        });
+    </script>
+</body>
+</html>

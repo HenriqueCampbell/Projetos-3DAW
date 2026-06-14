@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Pergunta Subjetiva</title>
+</head>
+<body>
+
+    <header>
+        <h1>Criar Nova Pergunta Subjetiva</h1>
+    </header>
+
+    <main>
+        <form id="formPerguntaSub">
+            <fieldset>
+                <legend>Dados da Pergunta</legend>
+
+                <p>
+                    <label for="id_field">ID da Pergunta:</label><br>
+                    <input type="text" id="id_field" name="id" placeholder="01 até 99" required>
+                </p>
+
+                <p>
+                    <label for="desc_field">Enunciado da Pergunta:</label><br>
+                    <textarea id="desc_field" name="pergunta" rows="4" cols="50" placeholder="Digite aqui o enunciado da questão" required></textarea>
+                </p>
+
+                <p>
+                    <label for="resp_field">Modelo de Resposta:</label><br>
+                    <textarea id="resp_field" name="resposta" rows="3" cols="50" placeholder="Insira o modelo aqui"></textarea>
+                </p>
+            </fieldset>
+
+            <br>
+            <button type="submit">Salvar Pergunta</button>
+            <button type="reset">Limpar Tudo</button>
+        </form>
+    </main>
+
+    <hr>
+
+    <nav>
+        <p>
+            <a href="../index.html">⬅ Retornar à página inicial</a>
+        </p>
+    </nav>
+
+    <script>
+        document.getElementById('formPerguntaSub').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Captura de dados dos campos do formulário
+            const id = document.querySelector('input[name="id"]').value;
+            const pergunta = document.querySelector('textarea[name="pergunta"]').value;
+            const resposta = document.querySelector('textarea[name="resposta"]').value;
+
+            const dadosFormulario = { id, pergunta, resposta };
+
+            const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/criarPerguntasSub.php';
+
+            // Envia os dados para o servidor
+            fetch(urlBackend, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dadosFormulario)
+            })
+            .then(respostaServidor => {
+                if (!respostaServidor.ok) throw new Error('Erro na resposta do servidor');
+                return respostaServidor.json();
+            })
+            .then(dados => {
+                // Trata o retorno do PHP
+                if(dados.status === 'sucesso') {
+                    alert(dados.mensagem);
+                    document.getElementById('formPerguntaSub').reset();
+                } else {
+                    alert('Erro: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => {
+                console.error('Erro no Fetch:', erro);
+                alert('Erro na comunicação com o servidor.');
+            });
+        });
+    </script>
+</body>
+</html>

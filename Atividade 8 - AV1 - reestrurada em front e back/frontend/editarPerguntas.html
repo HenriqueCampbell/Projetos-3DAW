@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Pergunta Subjetiva</title>
+</head>
+<body>
+
+    <header>
+        <h1>Editar Pergunta Subjetiva</h1>
+        <p>Altere os campos necessários.</p>
+    </header>
+
+    <main>
+        <form id="formEditarSub">
+            <fieldset>
+                <legend>Identificação</legend>
+                <p>
+                    <label for="id_edit">ID da Questão (Não editável):</label><br>
+                    <input type="text" id="id_edit" name="id" readonly style="background-color: #dddddd; cursor: not-allowed;">
+                </p>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Conteúdo da Pergunta</legend>
+                <p>
+                    <label for="pergunta_edit">Enunciado:</label><br>
+                    <textarea id="pergunta_edit" name="pergunta" rows="5" cols="60" style="resize: none;" required></textarea>
+                </p>
+
+                <p>
+                    <label for="resposta_edit">Modelo de Resposta:</label><br>
+                    <textarea id="resposta_edit" name="resposta" rows="4" cols="60" style="resize: none;"></textarea>
+                </p>
+            </fieldset>
+
+            <br>
+            <button type="submit">💾 Salvar Alterações</button>
+        </form>
+    </main>
+
+    <hr>
+
+    <nav>
+        <a href="listarPerguntasSub.html">⬅ Voltar para a lista</a>
+    </nav>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const idBuscado = urlParams.get('id');
+        const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/editarPerguntasSub.php';
+
+        if (idBuscado) {
+            fetch(`${urlBackend}?id=${idBuscado}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                if(dados.status === 'sucesso') {
+                    document.getElementById('id_edit').value = dados.pergunta.id_pergunta;
+                    document.getElementById('pergunta_edit').value = dados.pergunta.enunciado;
+                    document.getElementById('resposta_edit').value = dados.pergunta.resposta_modelo;
+                } else {
+                    alert('Erro ao carregar os dados: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => console.error('Erro:', erro));
+        }
+
+        document.getElementById('formEditarSub').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const id = document.getElementById('id_edit').value;
+            const pergunta = document.getElementById('pergunta_edit').value;
+            const resposta = document.getElementById('resposta_edit').value;
+
+            const dadosFormulario = { id, pergunta, resposta };
+
+            fetch(urlBackend, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosFormulario)
+            })
+            .then(respostaServidor => respostaServidor.json())
+            .then(dados => {
+                if(dados.status === 'sucesso') {
+                    alert(dados.mensagem);
+                    window.location.href = 'listarPerguntasSub.html'; 
+                } else {
+                    alert('Erro ao atualizar: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => {
+                console.error('Erro:', erro);
+                alert('Erro na comunicação com o servidor.');
+            });
+        });
+    </script>
+</body>
+</html>

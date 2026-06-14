@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Exclusão</title>
+</head>
+<body>
+
+    <header>
+        <h1 style="color: red;">Excluir Pergunta Subjetiva</h1>
+        <p>Verifique os dados abaixo antes de confirmar a remoção definitiva.</p>
+    </header>
+
+    <main>
+        <form id="formExcluirSub">
+            <fieldset style="background-color: #f9f9f9; border: 1px solid #ccc;">
+                <legend>Dados da Questão</legend>
+
+                <p>
+                    <label>ID:</label><br>
+                    <input type="text" id="id_excluir" name="id" readonly style="background-color: #dddddd; cursor: not-allowed;">
+                </p>
+
+                <p>
+                    <label>Enunciado da Pergunta:</label><br>
+                    <textarea id="pergunta_excluir" rows="4" cols="60" readonly style="background-color: #dddddd; cursor: not-allowed; resize: none;"></textarea>
+                </p>
+
+                <p>
+                    <label>Modelo de Resposta:</label><br>
+                    <textarea id="resposta_excluir" rows="3" cols="60" readonly style="background-color: #dddddd; cursor: not-allowed; resize: none;"></textarea>
+                </p>
+            </fieldset>
+
+            <div style="background-color: #ffe6e6; padding: 15px; border-left: 5px solid red; margin: 20px 0;">
+                <strong>⚠️ ATENÇÃO:</strong> Esta ação não poderá ser desfeita!
+            </div>
+
+            <button type="submit" style="background-color: #ff4d4d; color: white; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                Excluir Pergunta
+            </button>
+        </form>
+    </main>
+
+    <hr>
+
+    <nav>
+        <p>
+            <a href="listarPerguntasSub.html">⬅ Cancelar e voltar para a lista</a>
+        </p>
+    </nav>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const idBuscado = urlParams.get('id');
+        const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/excluirPerguntasSub.php';
+
+        if (idBuscado) {
+            fetch(`${urlBackend}?id=${idBuscado}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                if(dados.status === 'sucesso') {
+                    document.getElementById('id_excluir').value = dados.pergunta.id_pergunta;
+                    document.getElementById('pergunta_excluir').value = dados.pergunta.enunciado;
+                    document.getElementById('resposta_excluir').value = dados.pergunta.resposta_modelo;
+                } else {
+                    alert('Erro ao carregar os dados: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => console.error('Erro:', erro));
+        }
+
+        document.getElementById('formExcluirSub').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const id = document.getElementById('id_excluir').value;
+
+            fetch(urlBackend, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: id })
+            })
+            .then(resposta => resposta.json())
+            .then(dados => {
+                if(dados.status === 'sucesso') {
+                    alert(dados.mensagem);
+                    window.location.href = 'listarPerguntasSub.html'; 
+                } else {
+                    alert('Erro ao excluir a pergunta.');
+                }
+            })
+            .catch(erro => {
+                console.error('Erro:', erro);
+                alert('Erro na comunicação com o servidor.');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Perguntas Subjetivas</title>
+</head>
+<body>
+
+    <header>
+        <h1>Perguntas Subjetivas Cadastradas</h1>
+        <hr>
+    </header>
+
+    <main>
+        <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: left; border-collapse: collapse;">
+            <thead>
+                <tr bgcolor="#eeeeee">
+                    <th>ID</th>
+                    <th>Pergunta</th>
+                    <th>Modelo de Resposta</th>
+                    <th colspan="2">Ações</th>
+                </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+            </tbody>
+        </table>
+        <p id="status-msg"><strong>Status:</strong> Carregando dados...</p>
+    </main>
+
+    <hr>
+
+    <nav>
+        <p>
+            <a href="../index.html">⬅ Voltar para o Menu Principal</a>
+        </p>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/listarPerguntasSub.php';
+
+            fetch(urlBackend)
+            .then(resposta => resposta.json())
+            .then(perguntas => {
+                const corpoTabela = document.getElementById('corpo-tabela');
+                const statusMsg = document.getElementById('status-msg');
+
+                if (perguntas.length === 0) {
+                    statusMsg.innerHTML = "<strong>Status:</strong> Nenhuma pergunta cadastrada.";
+                    return; 
+                }
+
+                perguntas.forEach(pergunta => {
+                    const linha = document.createElement('tr');
+                    
+                    linha.innerHTML = `
+                        <td>${pergunta.id_pergunta}</td>
+                        <td>${pergunta.enunciado}</td>
+                        <td>${pergunta.resposta_modelo}</td>
+                        <td><a href='editarPerguntasSub.html?id=${pergunta.id_pergunta}'>📝 Editar</a></td>
+                        <td><a href='excluirPerguntasSub.html?id=${pergunta.id_pergunta}'>❌ Excluir</a></td>
+                    `;
+                    
+                    corpoTabela.appendChild(linha);
+                });
+                
+                statusMsg.innerHTML = "<strong>Status:</strong> Leitura realizada com sucesso.";
+            })
+            .catch(erro => {
+                console.error('Erro:', erro);
+                document.getElementById('status-msg').innerHTML = "<strong>Status:</strong> Erro ao carregar perguntas.";
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Pergunta Objetiva</title>
+</head>
+<body>
+
+    <header>
+        <h1>Editar Pergunta Objetiva</h1>
+        <p>Altere os campos necessários.</p>
+    </header>
+
+    <main>
+        <form id="formEditarObj">
+            <fieldset>
+                <legend>Identificação</legend>
+                <p>
+                    <label for="id_edit">ID da Questão (Não editável):</label><br>
+                    <input type="text" id="id_edit" name="id" readonly style="background-color: #dddddd; cursor: not-allowed;">
+                </p>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Conteúdo da Pergunta</legend>
+                <p>
+                    <label for="pergunta_edit">Enunciado:</label><br>
+                    <textarea id="pergunta_edit" name="pergunta" rows="3" cols="50" style="resize: none;" required></textarea>
+                </p>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Alternativas</legend>
+                <p>
+                    <label for="r1_edit"><strong>Alternativa Correta:</strong></label><br>
+                    <input type="text" id="r1_edit" name="r1" size="40" required>
+                </p>
+
+                <p>
+                    <label for="id_r2">Alternativa Incorreta 1:</label><br>
+                    <input type="text" id="id_r2" name="r2" size="40">
+                </p>
+
+                <p>
+                    <label for="id_r3">Alternativa Incorreta 2:</label><br>
+                    <input type="text" id="id_r3" name="r3" size="40">
+                </p>
+
+                <p>
+                    <label for="id_r4">Alternativa Incorreta 3:</label><br>
+                    <input type="text" id="id_r4" name="r4" size="40">
+                </p>
+            </fieldset>
+
+            <br>
+            <button type="submit">💾 Salvar Alterações</button>
+        </form>
+    </main>
+
+    <hr>
+
+    <nav>
+        <a href="listarPerguntasObj.html">⬅ Voltar para a lista</a>
+    </nav>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const idBuscado = urlParams.get('id');
+        const urlBackend = 'http://localhost/3daw/Atividade%208%20-%20AV1%20-%20reestrurada%20em%20front%20e%20back/backend/editarPerguntasObj.php';
+
+        if (idBuscado) {
+            fetch(`${urlBackend}?id=${idBuscado}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                if(dados.status === 'sucesso') {
+                    document.getElementById('id_edit').value = dados.pergunta.id_pergunta;
+                    document.getElementById('pergunta_edit').value = dados.pergunta.enunciado;
+                    document.getElementById('r1_edit').value = dados.pergunta.correta;
+                    document.getElementById('id_r2').value = dados.pergunta.incorreta1;
+                    document.getElementById('id_r3').value = dados.pergunta.incorreta2;
+                    document.getElementById('id_r4').value = dados.pergunta.incorreta3;
+                } else {
+                    alert('Erro ao carregar os dados: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => console.error('Erro:', erro));
+        }
+
+        document.getElementById('formEditarObj').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const id = document.getElementById('id_edit').value;
+            const pergunta = document.getElementById('pergunta_edit').value;
+            const r1 = document.getElementById('r1_edit').value;
+            const r2 = document.getElementById('id_r2').value;
+            const r3 = document.getElementById('id_r3').value;
+            const r4 = document.getElementById('id_r4').value;
+
+            const dadosFormulario = { id, pergunta, r1, r2, r3, r4 };
+
+            fetch(urlBackend, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosFormulario)
+            })
+            .then(resposta => resposta.json())
+            .then(dados => {
+                if(dados.status === 'sucesso') {
+                    alert(dados.mensagem);
+                    window.location.href = 'listarPerguntasObj.html'; 
+                } else {
+                    alert('Erro ao atualizar: ' + dados.mensagem);
+                }
+            })
+            .catch(erro => {
+                console.error('Erro:', erro);
+                alert('Erro na comunicação com o servidor.');
+            });
+        });
+    </script>
+</body>
+</html>
