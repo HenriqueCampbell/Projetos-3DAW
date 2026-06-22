@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Estética - Cadastro</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html">Reservar</a></li>
+                <li><a href="login.html" class="ativo">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sessao-autenticacao">
+            
+            <div class="cabecalho-form">
+                <h2>Crie sua Conta</h2>
+                <img src="../assets/imagens/icone-logo-clinica.png" alt="Ícone de logo do salão de beleza">
+            </div>
+
+            <div class="caixa-formulario">
+                <form id="form-cadastro" action="#" method="POST">
+                    
+                    <div class="linha-input">
+                        <img src="../assets/imagens/icone-linhas-genericas.png" class="icone-campo" alt="Ícone Usuário">
+    
+                        <div class="grupo-campo">
+                            <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" placeholder="Ex: Maria" required>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="text" id="sobrenome" name="sobrenome" placeholder="Ex: Silva" required>
+                        </div>
+                        
+                    </div>
+
+                    <div class="linha-input">
+                        <img src="../assets/imagens/icone-email.png" class="icone-campo" alt="Ícone E-mail">
+                        <div class="grupo-campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-input">
+                        <img src="../assets/imagens/icone-usuario.png" class="icone-campo" alt="Ícone Nome de Usuário">
+                        <div class="grupo-campo">
+                            <label for="username">Nome de Usuário</label>
+                            <input type="text" id="username" name="username" placeholder="Escolha um apelido" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-input">
+                        <img src="../assets/imagens/icone-telefone.png" class="icone-campo" alt="Ícone Telefone">
+                        <div class="grupo-campo">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-input">
+                        <img src="../assets/imagens/icone-cadeado.png" class="icone-campo" alt="Ícone Cadeado">
+                        <div class="grupo-campo">
+                            <label for="senha">Senha</label>
+                            <div class="container-senha">
+                                <input type="password" id="senha" name="senha" placeholder="Crie uma senha forte" required>
+                                <button type="button" id="btn-olho" class="btn-mostrar-senha">Mostrar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acoes-form">
+                        <button type="submit" class="btn btn-form">Criar Conta</button>
+                        <a href="login.html" class="link-secundario">Já tem uma conta? Faça login</a>
+                    </div>
+
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="../js/cadastro.js"></script>
+
+</body>
+</html>

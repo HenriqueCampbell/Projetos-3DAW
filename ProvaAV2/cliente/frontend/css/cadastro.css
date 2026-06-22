@@ -1,0 +1,166 @@
+/* ========================================== */
+/* 1. O CONTAINER GERAL                       */
+/* ========================================== */
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 40px 20px;
+}
+
+/* Agrupa o título (fora) e a caixa (dentro) */
+.sessao-autenticacao {
+    width: 100%;
+    max-width: 500px; /* Controla o tamanho máximo da caixa na tela */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================== */
+/* 2. CABEÇALHO E ÍCONE (FORA DA CAIXA)       */
+/* ========================================== */
+
+.cabecalho-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha à esquerda */
+    gap: 10px;
+    margin-bottom: 10px; /* Dá um espaçamento antes de começar a caixa com borda */
+}
+
+.cabecalho-form h2 {
+    color: #D8559B;
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+}
+
+.cabecalho-form img {
+    width: 35px; /* Tamanho proporcional ao título */
+    height: auto;
+}
+
+/* ========================================== */
+/* 3. A CAIXA EM SI (Borda Rosa)              */
+/* ========================================== */
+
+.caixa-formulario {
+    background-color: #FFFFFF;
+    border: 2px solid #D8559B;
+    border-radius: 15px; /* Borda da caixa principal */
+    padding: 30px; /* Espaçamento interno para não colar nas bordas */
+}
+
+/* ========================================== */
+/* 4. OS CAMPOS DO FORMULÁRIO                 */
+/* ========================================== */
+
+.linha-input {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* Os ícones do lado esquerdo */
+.icone-campo {
+    width: 30px; 
+    height: auto;
+    /* Esse margin empurra o ícone um pouco pra baixo para ele 
+       alinhar com a caixa branca de texto, e não com a palavra em cima dela */
+    margin-top: 20px; 
+}
+
+.grupo-campo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Os textos (Labels: Usuário, Senha) */
+.grupo-campo label {
+    color: #D8559B;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+/* As caixas de digitar em si */
+.grupo-campo input {
+    width: 100%; /* Força o input a nunca ultrapassar o espaço que o Flexbox deu pra ele */
+    box-sizing: border-box;
+    border: 2px solid #D8559B;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.grupo-campo input:focus {
+    border-color: #8B3973; 
+    box-shadow: 0 0 5px rgba(216, 85, 155, 0.3);
+}
+
+/* ========================================== */
+/* 5. BOTÃO DE MOSTRAR SENHA                     */
+/* ========================================== */
+
+.container-senha {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre a caixa e o botão */
+}
+
+.container-senha input {
+    flex: 1; /* Faz o input esticar */
+}
+
+.btn-mostrar-senha {
+    background: none;
+    border: none;
+    color: #D8559B;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-mostrar-senha:hover {
+    color: #8B3973; /* Fica mais escuro ao passar o mouse */
+    text-decoration: underline; /* Sublinha para dar cara de link */
+}
+
+/* ========================================== */
+/* 6. AÇÕES FINAIS (BOTÃO E LINK)             */
+/* ========================================== */
+
+.acoes-form {
+    display: flex;
+    align-items: center; /* Coloca o botão e o link na mesma linha */
+    gap: 15px; /* Espaço entre o botão e o link */
+    margin-top: 10px;
+}
+
+.btn-form {
+    /* Reescrevendo o tamanho do botão para não ocupar 100% da tela */
+    font-size: 1.2rem;
+    padding: 12px 30px; 
+    border: none;
+    cursor: pointer;
+}
+
+.link-secundario {
+    color: #D8559B;
+    text-decoration: underline; /* O link tem sublinhado */
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.link-secundario:hover {
+    color: #8B3973;
+}
