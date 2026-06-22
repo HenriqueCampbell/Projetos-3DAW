@@ -8,6 +8,7 @@ main {
     justify-content: center;
     align-items: center; 
     padding: 40px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(216, 85, 155, 0.16) 100%);
 }
 
 /* Agrupa o título (fora) e a caixa (dentro) */
@@ -163,4 +164,36 @@ main {
 
 .link-secundario:hover {
     color: #8B3973;
+}
+
+
+/* ========================================== */
+/* MODIFICAÇÕES EXCLUSIVAS DA TELA DE LOGIN   */
+/* ========================================== */
+
+.tela-login {
+    max-width: 600px; 
+}
+
+.tela-login .caixa-formulario {
+    padding: 50px 40px; 
+}
+
+.tela-login .grupo-campo input {
+    padding: 16px 20px;
+    font-size: 1.1rem;
+}
+
+.tela-login .icone-campo {
+    width: 38px;
+    margin-top: 25px;
+}
+
+.tela-login .btn-form {
+    padding: 15px 40px;
+    font-size: 1.3rem;
+}
+
+.tela-login .linha-input {
+    margin-bottom: 35px;
 }
