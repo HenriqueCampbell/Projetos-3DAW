@@ -1,0 +1,76 @@
+/* Import do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@600&display=swap');
+
+/* ================================ */
+/* CONFIGURAÇÕES GERAIS             */
+/* ================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* IBM Plex Sans como a fonte padrão para todo o site */
+    font-family: 'IBM Plex Sans', sans-serif; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================================ */
+/* CABEÇALHO E MENU GLOBAL          */
+/* ================================ */
+header {
+    background: linear-gradient(to right, #D8559B, #E62F91);
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+nav ul {
+    list-style: none; 
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 5%;
+}
+
+nav a {
+    /* O menu ganha a fonte Inter (SemiBold) */
+    font-family: 'Inter', sans-serif;
+    text-decoration: none; 
+    color: #FFFFFF;
+    font-weight: 600; 
+    font-size: 1.3rem; 
+    transition: all 0.3s ease; /* Deixa as animações de hover mais suaves */
+}
+
+/* Efeito ao passar o mouse nas opções do menu */
+nav a:hover {
+    text-shadow: 0px 4px 8px rgba(255, 255, 255, 0.6);
+}
+
+/* A classe para a página atual ganha um sublinhado */
+nav a.ativo {
+    border-bottom: 2px solid #FFFFFF;
+    padding-bottom: 5px; 
+}
+
+/* ================================ */
+/* BOTÕES GLOBAIS                   */
+/* ================================ */
+.btn {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.1rem; 
+    padding: 12px 24px; 
+    border-radius: 12px; 
+    background-color: #FF8ECA; 
+    transition: background-color 0.3s ease; 
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #8B3973;
+}

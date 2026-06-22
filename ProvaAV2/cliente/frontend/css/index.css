@@ -1,0 +1,52 @@
+/* ================================ */
+/* TELA DE INÍCIO      */
+/* ================================ */
+
+body {
+    /* O fundo gradiente de cima para baixo é aplicado apenas aqui */
+    background: linear-gradient(to bottom, #FF8ECA, #FFD5EB);
+}
+
+main {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    padding: 40px 20px;
+}
+
+.hero-section .icone img {
+    width: 7vw; 
+    min-width: 80px; 
+    margin-bottom: 20px;
+}
+
+.hero-section h1 {
+    /* A frase de efeito ganha a fonte Inter */
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+    font-weight: 600; 
+    font-size: 3.5vw; 
+    line-height: 1.3;
+    margin-bottom: 50px;
+}
+
+.botoes-acao {
+    display: flex;
+    justify-content: center;
+    gap: 6vw; 
+}
+
+.hero-section .btn {
+    /* Cor específica da tela inicial */
+    background-color: #D8559B;
+    
+    /* Tamanho exclusivo para a tela inicial */
+    font-size: 1.5rem; 
+    padding: 20px 50px; 
+}
+
+.hero-section .btn:hover {
+    background-color: #8B3973;
+}

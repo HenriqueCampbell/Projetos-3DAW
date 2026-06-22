@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão de Beleza - Início</title>
+
+    <!-- Carrega o CSS global primeiro -->
+    <link rel="stylesheet" href="frontend/css/global.css">
+
+    <!-- Carrega o CSS específico da página de início -->
+    <link rel="stylesheet" href="frontend/css/index.css">
+
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- CABEÇALHO -->
+    <!-- ========================================== -->
+    <header>
+        <nav>
+            <ul>
+                <!-- A classe 'ativo' serve para sublinhar (no CSS) o menu que está sendo usado no momento -->
+                <li><a href="index.html" class="ativo">Início</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html">Reservar</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ========================================== -->
+    <main>
+        <section class="hero-section">
+            
+            <!-- O ícone do coração -->
+            <div class="icone">
+                <img src="frontend/assets/imagens/icone-logo-clinica.png" alt="Ícone de logo do salão de beleza">
+            </div>
+
+            <!-- O texto da frase de efeito -->
+            <h1>Agende seu momento de beleza <br> com quem entende de cuidado.</h1>
+
+            <!-- Os dois botões -->
+            <div class="botoes-acao">
+                <!-- Tag <a> em vez de <button> porque elas levam para outras páginas -->
+                <a href="reservar.html" class="btn btn-primario">Reserve Agora</a>
+                <a href="pacotes.html" class="btn btn-secundario">Ver Pacotes</a>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>
