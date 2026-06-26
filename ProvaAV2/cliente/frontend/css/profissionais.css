@@ -1,0 +1,145 @@
+/* ========================================== */
+/* SEÇÃO DE INTRODUÇÃO                        */
+/* ========================================== */
+
+.sessao-intro {
+    background-color: #FF8ECA;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 60px 20px;
+}
+
+.texto-intro {
+    max-width: 650px;
+}
+
+.texto-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.texto-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.icone-intro {
+    width: 180px;
+    opacity: 0.9;
+}
+
+/* ========================================== */
+/* CONTAINER DOS CARDS                        */
+/* ========================================== */
+
+.container-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 50px 20px;
+}
+
+/* ========================================== */
+/* DESIGN DO CARTÃO DO FUNCIONÁRIO            */
+/* ========================================== */
+
+.cartao-funcionario {
+    background-color: #FFD6E9;
+    border: 2px solid #D8559B;
+    border-radius: 12px;
+    display: flex;
+    width: 100%;
+    max-width: 850px;
+    padding: 25px;
+    gap: 30px;
+    position: relative;
+}
+
+.icone-favorito {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 65px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icone-favorito:hover {
+    transform: scale(1.1); 
+}
+
+.foto-funcionario {
+    width: 220px;
+    height: 260px;
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
+.info-funcionario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 50px;
+}
+
+.cabecalho-info {
+    display: flex;
+    align-items: baseline; 
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.nome-funcionario {
+    color: #C2185B;
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.especialidade {
+    color: #D8559B;
+    font-size: 1.6rem; 
+    font-weight: 600;
+}
+
+.descricao {
+    color: #7A4551;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.btn-reservar {
+    background-color: #FF8ECA;
+    color: #FFFFFF;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: max-content;
+    align-self: flex-start;
+}
+
+.btn-reservar:hover {
+    background-color: #8B3973; 
+}
+
+
+/* ========================================== */
+/* OUTROS                                     */
+/* ========================================== */
+
+
+.logo-rodape {
+    display: block; /* Necessário para o margin auto funcionar em imagens */
+    margin: 20px auto 60px auto; /* Centraliza nas laterais e dá um bom espaço embaixo */
+    width: 90px; /* Ajuste este valor se achar que ficou muito grande ou muito pequeno */
+    opacity: 0.9;
+}

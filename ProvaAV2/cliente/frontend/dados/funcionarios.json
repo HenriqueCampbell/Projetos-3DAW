@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nome": "José",
+    "especialidade": "Cabeleireiro",
+    "descricao": "Nosso cabeleireiro exclusivo, com um talento ímpar e dedicação a cada fio de cabelo.",
+    "foto": "../assets/fotos_funcionarios/Jose.png"
+  },
+  {
+    "id": 2,
+    "nome": "João",
+    "especialidade": "Manicure",
+    "descricao": "Especialista em esmaltação, design e unhas: João tira suas cutículas e é muito atencioso.",
+    "foto": "../assets/fotos_funcionarios/Joao.png"
+  },
+  {
+    "id": 3,
+    "nome": "Maria",
+    "especialidade": "Massagista",
+    "descricao": "Maria sabe cuidar de você com um toque inesquecível. Mestre da técnica de massagem com marreta.",
+    "foto": "../assets/fotos_funcionarios/Maria.png"
+  },
+  {
+    "id": 4,
+    "nome": "Pedro",
+    "especialidade": "Barbeiro",
+    "descricao": "Oferece cortes precisos, barbas impecáveis e atendimento de primeira. Pedro é o nome certo.",
+    "foto": "../assets/fotos_funcionarios/Pedro.png"
+  },
+  {
+    "id": 5,
+    "nome": "Matheus",
+    "especialidade": "Manicure",
+    "descricao": "Com mãos habilidosas e um olhar atento, Matheus faz cada cliente se sentir estiloso e bem-cuidado.",
+    "foto": "../assets/fotos_funcionarios/Matheus.png"
+  },
+  {
+    "id": 6,
+    "nome": "Miriam",
+    "especialidade": "Designer de Sobrancelhas",
+    "descricao": "Miriam fez seu nome em nossa clínica devido à sua precisão impecável e sensibilidade.",
+    "foto": "../assets/fotos_funcionarios/Miriam.png"
+  }
+]
