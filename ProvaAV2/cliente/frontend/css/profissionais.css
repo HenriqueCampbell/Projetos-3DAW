@@ -54,15 +54,40 @@
 /* ========================================== */
 
 .cartao-funcionario {
-    background-color: #FFD6E9;
+   background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
     border: 2px solid #D8559B;
-    border-radius: 12px;
-    display: flex;
-    width: 100%;
-    max-width: 850px;
+    border-radius: 20px;
+    
     padding: 25px;
+    margin: 25px auto;
+    max-width: 800px;
+    display: flex;
     gap: 30px;
+    align-items: center;
     position: relative;
+
+    box-shadow: 0 10px 30px rgba(194, 24, 91, 0.05);
+    
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.3s ease;
+}
+
+.cartao-funcionario:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(194, 24, 91, 0.12);
+}
+
+.cartao-funcionario img {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.cartao-funcionario:hover img {
+    transform: scale(1.02);
 }
 
 .icone-favorito {
@@ -121,12 +146,13 @@
 
 .btn-reservar {
     background-color: #FF8ECA;
+    font-family: 'Inter', sans-serif;
     color: #FFFFFF;
     border: none;
     padding: 16px 30px;
     border-radius: 8px;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: background-color 0.3s;
     width: max-content;
@@ -144,9 +170,9 @@
 
 
 .logo-rodape {
-    display: block; /* Necessário para o margin auto funcionar em imagens */
-    margin: 20px auto 60px auto; /* Centraliza nas laterais e dá um bom espaço embaixo */
-    width: 90px; /* Ajuste este valor se achar que ficou muito grande ou muito pequeno */
+    display: block;
+    margin: 20px auto 60px auto;
+    width: 90px;
     opacity: 0.9;
 }
 

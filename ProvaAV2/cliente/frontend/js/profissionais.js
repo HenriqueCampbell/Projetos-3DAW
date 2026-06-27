@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         <p class="descricao">${profissional.descricao}</p>
                         
-                        <button class="btn-reservar">Reservar Serviços com ${profissional.nome}</button>
+                        <button class="btn-reservar">Reservar com ${profissional.nome}</button>
                     </div>
                 `;
 
