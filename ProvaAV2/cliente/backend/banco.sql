@@ -1,3 +1,4 @@
+-- 1. Tabela de Usuários
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
@@ -10,7 +11,7 @@ CREATE TABLE usuarios (
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- '
+-- 2. Tabela de Favoritos
 CREATE TABLE favoritos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
@@ -21,7 +22,7 @@ CREATE TABLE favoritos (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
--- 3. Tabela de Agendamentos (O "cabeçalho" da reserva)
+-- 3. Tabela de Agendamentos
 CREATE TABLE agendamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
