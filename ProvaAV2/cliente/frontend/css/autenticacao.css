@@ -1,5 +1,5 @@
 /* ========================================== */
-/* 1. O CONTAINER GERAL                       */
+/* O CONTAINER GERAL                          */
 /* ========================================== */
 
 main {
@@ -11,24 +11,23 @@ main {
     background: linear-gradient(135deg, #ffffff 0%, rgba(216, 85, 155, 0.16) 100%);
 }
 
-/* Agrupa o título (fora) e a caixa (dentro) */
 .sessao-autenticacao {
     width: 100%;
-    max-width: 500px; /* Controla o tamanho máximo da caixa na tela */
+    max-width: 500px;
     display: flex;
     flex-direction: column;
 }
 
 /* ========================================== */
-/* 2. CABEÇALHO E ÍCONE (FORA DA CAIXA)       */
+/* CABEÇALHO E ÍCONE (FORA DA CAIXA)          */
 /* ========================================== */
 
 .cabecalho-form {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Alinha à esquerda */
+    justify-content: flex-start;
     gap: 10px;
-    margin-bottom: 10px; /* Dá um espaçamento antes de começar a caixa com borda */
+    margin-bottom: 10px;
 }
 
 .cabecalho-form h2 {
@@ -38,23 +37,23 @@ main {
 }
 
 .cabecalho-form img {
-    width: 35px; /* Tamanho proporcional ao título */
+    width: 35px;
     height: auto;
 }
 
 /* ========================================== */
-/* 3. A CAIXA EM SI (Borda Rosa)              */
+/* A CAIXA EM SI                              */
 /* ========================================== */
 
 .caixa-formulario {
     background-color: #FFFFFF;
     border: 2px solid #D8559B;
-    border-radius: 15px; /* Borda da caixa principal */
-    padding: 30px; /* Espaçamento interno para não colar nas bordas */
+    border-radius: 15px;
+    padding: 30px;
 }
 
 /* ========================================== */
-/* 4. OS CAMPOS DO FORMULÁRIO                 */
+/* OS CAMPOS DO FORMULÁRIO                    */
 /* ========================================== */
 
 .linha-input {
@@ -64,12 +63,10 @@ main {
     margin-bottom: 25px;
 }
 
-/* Os ícones do lado esquerdo */
+/* ícones do lado esquerdo */
 .icone-campo {
     width: 30px; 
     height: auto;
-    /* Esse margin empurra o ícone um pouco pra baixo para ele 
-       alinhar com a caixa branca de texto, e não com a palavra em cima dela */
     margin-top: 20px; 
 }
 
@@ -89,7 +86,7 @@ main {
 
 /* As caixas de digitar em si */
 .grupo-campo input {
-    width: 100%; /* Força o input a nunca ultrapassar o espaço que o Flexbox deu pra ele */
+    width: 100%;
     box-sizing: border-box;
     border: 2px solid #D8559B;
     border-radius: 8px;
@@ -107,17 +104,17 @@ main {
 }
 
 /* ========================================== */
-/* 5. BOTÃO DE MOSTRAR SENHA                     */
+/* BOTÃO DE MOSTRAR SENHA                     */
 /* ========================================== */
 
 .container-senha {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaço entre a caixa e o botão */
+    gap: 15px;
 }
 
 .container-senha input {
-    flex: 1; /* Faz o input esticar */
+    flex: 1;
 }
 
 .btn-mostrar-senha {
@@ -132,12 +129,12 @@ main {
 }
 
 .btn-mostrar-senha:hover {
-    color: #8B3973; /* Fica mais escuro ao passar o mouse */
-    text-decoration: underline; /* Sublinha para dar cara de link */
+    color: #8B3973;
+    text-decoration: underline;
 }
 
 /* ========================================== */
-/* 6. AÇÕES FINAIS (BOTÃO E LINK)             */
+/* AÇÕES FINAIS (BOTÃO E LINK)                */
 /* ========================================== */
 
 .acoes-form {
@@ -148,7 +145,6 @@ main {
 }
 
 .btn-form {
-    /* Reescrevendo o tamanho do botão para não ocupar 100% da tela */
     font-size: 1.2rem;
     padding: 12px 30px; 
     border: none;
@@ -157,7 +153,7 @@ main {
 
 .link-secundario {
     color: #D8559B;
-    text-decoration: underline; /* O link tem sublinhado */
+    text-decoration: underline;
     font-size: 0.95rem;
     font-weight: 600;
 }
