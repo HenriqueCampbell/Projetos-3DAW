@@ -3,7 +3,7 @@
     "id": 1,
     "nome": "José",
     "especialidade": "Cabeleireiro",
-    "descricao": "Nosso cabeleireiro exclusivo, com um talento ímpar e dedicação a cada fio de cabelo.",
+    "descricao": "Nosso cabeleireiro exclusivo, com um talento ímpar e dedicação a cada fio de cabelo. Jóse já transformou a aparência de celebridades como Anitta e Pabllo Vittar, garantindo cortes e colorações impecáveis.",
     "foto": "../assets/fotos_funcionarios/Jose.png"
   },
   {
@@ -17,28 +17,28 @@
     "id": 3,
     "nome": "Maria",
     "especialidade": "Massagista",
-    "descricao": "Maria sabe cuidar de você com um toque inesquecível. Mestre da técnica de massagem com marreta.",
+    "descricao": "Maria sabe cuidar de você com um toque inesquecível. Aprendiz de Everson Zóio e Mestre da técnica de massagem com marreta.",
     "foto": "../assets/fotos_funcionarios/Maria.png"
   },
   {
     "id": 4,
     "nome": "Pedro",
     "especialidade": "Barbeiro",
-    "descricao": "Oferece cortes precisos, barbas impecáveis e atendimento de primeira. Pedro é o nome certo.",
+    "descricao": "Oferece cortes precisos, barbas impecáveis e atendimento de primeira. Pedro é o nome certo. Sua mãe o deu esse nome pela sua semalhança com o ator Pedro Bial, e ele leva isso a sério.",
     "foto": "../assets/fotos_funcionarios/Pedro.png"
   },
   {
     "id": 5,
     "nome": "Matheus",
     "especialidade": "Manicure",
-    "descricao": "Com mãos habilidosas e um olhar atento, Matheus faz cada cliente se sentir estiloso e bem-cuidado.",
+    "descricao": "Com mãos habilidosas e um olhar atento, Matheus faz cada cliente se sentir estiloso e bem-cuidado. Ele é conhecido por sua paciência e atenção aos detalhes, garantindo que cada unha seja uma obra de arte.",
     "foto": "../assets/fotos_funcionarios/Matheus.png"
   },
   {
     "id": 6,
     "nome": "Miriam",
     "especialidade": "Designer de Sobrancelhas",
-    "descricao": "Miriam fez seu nome em nossa clínica devido à sua precisão impecável e sensibilidade.",
+    "descricao": "Empreendedora, empresária e designer de sobrancelhas, Miriam é especialista em moldar formas perfeitas e realçar a beleza natural dos clientes. Sua abordagem personalizada garante resultados harmoniosos e elegantes.",
     "foto": "../assets/fotos_funcionarios/Miriam.png"
   }
 ]
