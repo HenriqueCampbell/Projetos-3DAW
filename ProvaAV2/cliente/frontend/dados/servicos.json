@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "categoria": "Cabelo",
+    "descricao": "Transforme seu visual com nossos cortes, colorações e alisamentos personalizados. Aqui, seu cabelo recebe o cuidado que merece.",
+    "imagem": "../assets/imagens/icone-tesoura.png",
+    "profissionais": ["José"],
+    "itens": [
+      { "id": 101, "nome": "Corte Simples Feminino", "preco_centavos": 8000, "duracao_minutos": 60 },
+      { "id": 102, "nome": "Pintar Cabelo", "preco_centavos": 12000, "duracao_minutos": 180 },
+      { "id": 103, "nome": "Progressiva Curto", "preco_centavos": 7000, "duracao_minutos": 180 },
+      { "id": 104, "nome": "Corte Máquina Disfarçado", "preco_centavos": 5000, "duracao_minutos": 25 }
+    ]
+  },
+  {
+    "id": 2,
+    "categoria": "Manicure",
+    "descricao": "Cuidamos das suas unhas com atenção e carinho. Oferecemos aplicação de fibra, gel e manutenção, com acabamento impecável.",
+    "imagem": "../assets/imagens/icone-esmalte.png",
+    "profissionais": ["João", "Matheus"],
+    "itens": [
+      { "id": 201, "nome": "Colocação de Unhas de Gel", "preco_centavos": 7000, "duracao_minutos": 30 },
+      { "id": 202, "nome": "Banho de Fibra", "preco_centavos": 7000, "duracao_minutos": 30 },
+      { "id": 203, "nome": "Manuntenção de Unhas de Gel", "preco_centavos": 5000, "duracao_minutos": 30 }
+    ]
+  },
+  {
+    "id": 3,
+    "categoria": "Massagens",
+    "descricao": "Libere o estresse com nossas massagens relaxantes e revigorantes, realizadas por massagistas profissionais, com foco no seu bem-estar.",
+    "imagem": "../assets/imagens/icone-massagem.png",
+    "profissionais": ["Maria"],
+    "itens": [
+      { "id": 301, "nome": "Massagem Batendo com Marreta", "preco_centavos": 20000, "duracao_minutos": 60 }
+    ]
+  },
+  {
+    "id": 4,
+    "categoria": "Barba",
+    "descricao": "Especializado em estética masculina, oferecemos desde cortes clássicos a barbas pigmentadas. Ideal para quem valoriza o detalhe e a precisão.",
+    "imagem": "../assets/imagens/icone-barbeiro.png",
+    "profissionais": ["Pedro"],
+    "itens": [
+      { "id": 401, "nome": "Barba Simples", "preco_centavos": 4000, "duracao_minutos": 20 },
+      { "id": 402, "nome": "Barba Pigmentada", "preco_centavos": 6000, "duracao_minutos": 30 },
+      { "id": 403, "nome": "Corte Undercut", "preco_centavos": 5000, "duracao_minutos": 30 }
+    ]
+  },
+  {
+    "id": 5,
+    "categoria": "Sobrancelhas",
+    "descricao": "Realçamos seu olhar com técnicas de design e visagismo. Atendemos com cuidado personalizado, tanto masculino quanto feminino.",
+    "imagem": "../assets/imagens/icone-ferramenta-sobrancelha.png",
+    "profissionais": ["Miriam"],
+    "itens": [
+      { "id": 501, "nome": "Sobrancelha Masculina", "preco_centavos": 3000, "duracao_minutos": 20 },
+      { "id": 502, "nome": "Design de Sobrancelha", "preco_centavos": 4000, "duracao_minutos": 30 }
+    ]
+  }
+]
