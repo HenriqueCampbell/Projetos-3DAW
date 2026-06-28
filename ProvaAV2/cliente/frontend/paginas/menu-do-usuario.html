@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/menu-do-usuario.css">
 </head>
-<body style="background: linear-gradient(180deg, #FFD6E9 50%, #ffffff 100%); min-height: 100vh; margin: 0;">
+<body style="background-color: #FFF0F6; min-height: 100vh; margin: 0;">
 
     <header>
         <nav>
@@ -22,75 +22,56 @@
                 <li><a href="profissionais.html">Profissionais</a></li>
                 <li><a href="pacotes.html">Pacotes</a></li>
                 <li><a href="reservar.html">Reservar</a></li>
-                <li><a id="link-login" href="login.html" class="ativo">Menu</a></li>
+                <li><a id="link-login" href="login.html" class="ativo">Menu do Usuário</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container-painel">
-        <div class="barra-usuario">
-            <div class="caixa-creditos">
-                <span class="label-creditos">Meus Créditos:</span>
-                <span class="valor-creditos" id="qtd-creditos">0</span>
+        
+        <div class="layout-principal-superior">
+            <div class="coluna-esquerda">
+                <section class="secao-boas-vindas">
+                    <h1 class="titulo-boas-vindas">Seja bem-vindo ao<br><span class="desalinhamento-estetico">Menu do Usuário</span></h1>
+                    <p class="subtitulo-boas-vindas">
+                        Aqui você pode verificar suas reservas agendadas e acompanhar quantos créditos <img src="../assets/imagens/icone-credito.png" alt="Crédito" class="icone-inline"> você acumulou com nosso programa de fidelidade.
+                    </p>
+                </section>
+
+                <section class="secao-fidelidade">
+                    <h2 class="titulo-secao">Ganhe Créditos ao reservar!</h2>
+                    <div class="card-fidelidade">
+                        <img src="../assets/imagens/trilha-fidelidade.png" alt="Progresso da Fidelidade" class="imagem-trilha-fidelidade">
+                    </div>
+                </section>
             </div>
-            <div class="menu-perfil">
-                <span class="nome-usuario" id="nome-perfil">Carregando...</span>
-                <div class="foto-placeholder"></div>
-                <a href="../../backend/logout.php" class="btn-sair">sair</a>
+
+            <div class="coluna-direita">
+                <div class="barra-usuario-direita">
+                    <div class="caixa-creditos">
+                        <img src="../assets/imagens/icone-credito.png" alt="Moeda de Crédito" class="icone-moeda">
+                        <span class="valor-creditos" id="qtd-creditos">0</span>
+                    </div>
+                    <div class="menu-perfil">
+                        <div class="foto-placeholder">
+                            <img src="../assets/imagens/avatar-padrao.png" alt="Foto do Usuário" id="foto-usuario-perfil">
+                        </div>
+                        <span class="nome-usuario" id="nome-perfil">Carregando...</span>
+                        <a href="../../backend/logout.php" class="btn-sair">sair</a>
+                    </div>
+                </div>
+
+                <section class="secao-reservas-lateral">
+                    <h2 class="titulo-secao-reservas">Reservas</h2>
+                    <div class="card-reservas-box" id="container-reservas">
+                        <p class="texto-nenhum-servico">Nenhum serviço agendado.</p>
+                        <button class="btn-reservar-agora" onclick="window.location.href='reservar.html'">Reserve Agora</button>
+                    </div>
+                </section>
             </div>
         </div>
 
-        <section class="secao-boas-vindas">
-            <h1 class="titulo-boas-vindas">Seja bem vindo ao<br><span class="desalinhamento-estetico">Menu do Usuário</span></h1>
-            <p class="subtitulo-boas-vindas">
-                Aqui você pode verificar suas reservas agendadas e acompanhar quantos créditos você acumulou com nosso programa de fidelidade.
-            </p>
-        </section>
-
-        <section class="secao-painel">
-            <h2 class="titulo-secao">Ganhe Créditos ao reservar!</h2>
-            <div class="card-horizontal">
-                <div class="trilha-fidelidade">
-                    <div class="ponto-trilha concluido">
-                        <div class="circulo">1ª</div>
-                        <span>Reserva Feita!</span>
-                    </div>
-                    <div class="seta-trilha">➔</div>
-                    <div class="ponto-trilha concluido">
-                        <div class="circulo">2ª</div>
-                        <span>Reserva Feita!</span>
-                    </div>
-                    <div class="seta-trilha">➔</div>
-                    <div class="ponto-trilha">
-                        <div class="circulo">3ª</div>
-                        <span>3ª Reserva</span>
-                    </div>
-                    <div class="seta-trilha">➔</div>
-                    <div class="ponto-trilha ativo">
-                        <div class="circulo">500</div>
-                        <span>Créditos! 4ª Reserva</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="secao-painel">
-            <h2 class="titulo-secao">Reservas</h2>
-            <div id="container-reservas">
-                <div class="card-horizontal reserva-card">
-                    <div class="detalhes-reserva">
-                        <p class="data-hora-reserva" style="font-size: 1.2rem; color: #6C3A56; margin: 0;">
-                            Nenhum serviço agendado.
-                        </p>
-                    </div>
-                    <button class="btn-reservar-agora" onclick="window.location.href='reservar.html'">
-                        Reserve Agora
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="secao-painel">
+        <section class="secao-favoritos-inferior">
             <h2 class="titulo-secao">Profissionais Favoritados</h2>
             <div id="container-favoritos" class="grid-favoritos">
                 </div>

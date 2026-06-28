@@ -1,255 +1,273 @@
-/* Definições Gerais baseadas nas regras do Figma */
 .container-painel {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 30px 20px 80px 20px;
+    padding: 40px 20px;
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
-/* 1. Barra Superior de Informações */
-.barra-usuario {
+.layout-principal-superior {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    gap: 40px;
     margin-bottom: 40px;
 }
 
+.coluna-esquerda {
+    flex: 1.3;
+}
+
+.coluna-direita {
+    flex: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.barra-usuario-direita {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
 .caixa-creditos {
-    border: 2px solid #D8559B;
-    background-color: #FFFFFF;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    color: #6C3A56;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icone-moeda, .icone-inline {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
 }
 
 .valor-creditos {
     color: #D8559B;
-    margin-left: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .menu-perfil {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+}
+
+.foto-placeholder {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #D8559B;
+}
+
+.foto-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .nome-usuario {
     color: #6C3A56;
     font-weight: 600;
-}
-
-.foto-placeholder {
-    width: 45px;
-    height: 45px;
-    background-color: #D8559B;
-    border-radius: 50%;
+    font-size: 1.1rem;
 }
 
 .btn-sair {
-    color: #9B356F;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.btn-sair:hover {
+    color: #D8559B;
     text-decoration: underline;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-left: 5px;
 }
 
-/* 2. Seção de Boas-vindas (Aesthetic) */
 .secao-boas-vindas {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 
 .titulo-boas-vindas {
     color: #D8559B;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: 600;
     line-height: 1.2;
-    margin-bottom: 15px;
+    margin: 0 0 15px 0;
 }
 
 .desalinhamento-estetico {
-    margin-left: 30px; /* Recuo conceitual do Figma */
+    margin-left: 45px;
 }
 
 .subtitulo-boas-vindas {
     color: #9B356F;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 750px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
-/* 3. Títulos das Seções */
 .titulo-secao {
     color: #D8559B;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin: 0 0 15px 0;
 }
 
-/* 4. Estrutura dos Cards Horizontais (Fidelidade e Reservas) */
-.card-horizontal {
+.titulo-secao-reservas {
+    color: #D8559B;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.card-fidelidade {
     background-color: #FFFFFF;
     border: 2px solid #D8559B;
     border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(216, 85, 155, 0.05);
-}
-
-/* Trilha do Programa de Fidelidade */
-.trilha-fidelidade {
+    padding: 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
-.ponto-trilha {
+.imagem-trilha-fidelidade {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+}
+
+.secao-reservas-lateral {
+    width: 100%;
+    max-width: 340px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    color: #b0b0b0;
 }
 
-.ponto-trilha .circulo {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #b0b0b0;
-    border-radius: 50%;
+.card-reservas-box {
+    background-color: #FFFFFF;
+    border: 2px solid #D8559B;
+    border-radius: 20px;
+    width: 100%;
+    height: 250px;
+    padding: 25px;
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-}
-
-.ponto-trilha.concluido .circulo {
-    background-color: #D8559B;
-    border-color: #D8559B;
-    color: white;
-}
-
-.ponto-trilha.ativo .circulo {
-    border-color: #D8559B;
-    color: #D8559B;
-    box-shadow: 0 0 10px rgba(216, 85, 155, 0.3);
-}
-
-.ponto-trilha.ativo span, .ponto-trilha.concluido span {
-    color: #6C3A56;
-    font-weight: 600;
-}
-
-.seta-trilha {
-    color: #D8559B;
-    font-size: 1.2rem;
-}
-
-/* Detalhes do Card de Reserva */
-.reserva-card {
-    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.status-reserva {
-    background-color: rgba(216, 85, 155, 0.1);
-    color: #D8559B;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.profissional-reserva {
+.texto-nenhum-servico {
     color: #6C3A56;
     font-size: 1.2rem;
-    margin: 10px 0 5px 0;
-}
-
-.data-hora-reserva {
-    color: #9B356F;
-    margin: 0;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .btn-reservar-agora {
     background-color: #D8559B;
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 10px;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s;
 }
 
 .btn-reservar-agora:hover {
     background-color: #be3983;
 }
 
-/* 5. Grid de Favoritos (2 Colunas) */
+.secao-favoritos-inferior {
+    margin-top: 40px;
+}
+
 .grid-favoritos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 30px;
 }
 
-/* Card de Funcionário Favoritado (Verticalizado/Compacto) */
-.card-favorito-compacto {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
+.card-favorito-figma {
+    background-color: #FFFFFF;
+    border: 2px solid #D8559B;
     padding: 20px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.cabecalho-favorito {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
+    margin-bottom: 15px;
+}
+
+.nome-favorito {
+    color: #6C3A56;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.estrela-favorito {
+    width: 30px;
+    height: 30px;
+}
+
+.corpo-favorito {
+    display: flex;
     gap: 15px;
-    box-shadow: 0 10px 25px rgba(216, 85, 155, 0.03);
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-bottom: 20px;
+    align-items: flex-start;
 }
 
-@media (min-width: 600px) {
-    .card-favorito-compacto {
-        flex-direction: row;
-        text-align: left;
-    }
-}
-
-.card-favorito-compacto:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(216, 85, 155, 0.1);
-}
-
-.foto-favorito-compacta {
-    width: 90px;
-    height: 90px;
+.foto-favorito {
+    width: 130px;
+    height: 140px;
     object-fit: cover;
-    border-radius: 15px;
 }
 
-.info-favorito-compacta {
+.detalhes-favorito {
     flex: 1;
 }
 
-.nome-favorito-compacto {
-    color: #6C3A56;
-    margin: 0 0 5px 0;
-    font-size: 1.15rem;
-}
-
-.especialidade-favorito-compacto {
+.cargo-favorito {
     color: #D8559B;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    margin: 0 0 10px 0;
 }
 
-/* Estado Vazio (Sem favoritos) */
+.descricao-favorito {
+    color: #6C3A56;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.btn-reservar-profissional {
+    background-color: #FF96D5;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
 .estado-vazio {
     grid-column: span 2;
     background: #FFFFFF;
@@ -269,12 +287,6 @@
     border: 1px solid #D8559B;
     padding: 8px 18px;
     border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.btn-link-vazio:hover {
-    background-color: #D8559B;
-    color: white;
 }
 
 .fundo-modal {

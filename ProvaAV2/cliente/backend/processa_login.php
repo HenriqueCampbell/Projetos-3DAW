@@ -1,6 +1,11 @@
 <?php
 
-// Iniciamos a sessão para poder guardar o ID do usuário logado
+
+session_set_cookie_params([
+    'path' => '/',
+    'samesite' => 'Lax'
+]);
+
 session_start();
 
 header('Content-Type: application/json');
