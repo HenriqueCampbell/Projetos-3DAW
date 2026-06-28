@@ -1,0 +1,278 @@
+/* Definições Gerais baseadas nas regras do Figma */
+.container-painel {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px 80px 20px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* 1. Barra Superior de Informações */
+.barra-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.caixa-creditos {
+    border: 2px solid #D8559B;
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #6C3A56;
+}
+
+.valor-creditos {
+    color: #D8559B;
+    margin-left: 5px;
+}
+
+.menu-perfil {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nome-usuario {
+    color: #6C3A56;
+    font-weight: 600;
+}
+
+.foto-placeholder {
+    width: 45px;
+    height: 45px;
+    background-color: #D8559B;
+    border-radius: 50%;
+}
+
+.btn-sair {
+    color: #9B356F;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.btn-sair:hover {
+    text-decoration: underline;
+}
+
+/* 2. Seção de Boas-vindas (Aesthetic) */
+.secao-boas-vindas {
+    margin-bottom: 50px;
+}
+
+.titulo-boas-vindas {
+    color: #D8559B;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.desalinhamento-estetico {
+    margin-left: 30px; /* Recuo conceitual do Figma */
+}
+
+.subtitulo-boas-vindas {
+    color: #9B356F;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 750px;
+}
+
+/* 3. Títulos das Seções */
+.titulo-secao {
+    color: #D8559B;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* 4. Estrutura dos Cards Horizontais (Fidelidade e Reservas) */
+.card-horizontal {
+    background-color: #FFFFFF;
+    border: 2px solid #D8559B;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(216, 85, 155, 0.05);
+}
+
+/* Trilha do Programa de Fidelidade */
+.trilha-fidelidade {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ponto-trilha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #b0b0b0;
+}
+
+.ponto-trilha .circulo {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #b0b0b0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.ponto-trilha.concluido .circulo {
+    background-color: #D8559B;
+    border-color: #D8559B;
+    color: white;
+}
+
+.ponto-trilha.ativo .circulo {
+    border-color: #D8559B;
+    color: #D8559B;
+    box-shadow: 0 0 10px rgba(216, 85, 155, 0.3);
+}
+
+.ponto-trilha.ativo span, .ponto-trilha.concluido span {
+    color: #6C3A56;
+    font-weight: 600;
+}
+
+.seta-trilha {
+    color: #D8559B;
+    font-size: 1.2rem;
+}
+
+/* Detalhes do Card de Reserva */
+.reserva-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-reserva {
+    background-color: rgba(216, 85, 155, 0.1);
+    color: #D8559B;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.profissional-reserva {
+    color: #6C3A56;
+    font-size: 1.2rem;
+    margin: 10px 0 5px 0;
+}
+
+.data-hora-reserva {
+    color: #9B356F;
+    margin: 0;
+}
+
+.btn-reservar-agora {
+    background-color: #D8559B;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-reservar-agora:hover {
+    background-color: #be3983;
+}
+
+/* 5. Grid de Favoritos (2 Colunas) */
+.grid-favoritos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Card de Funcionário Favoritado (Verticalizado/Compacto) */
+.card-favorito-compacto {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    box-shadow: 0 10px 25px rgba(216, 85, 155, 0.03);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (min-width: 600px) {
+    .card-favorito-compacto {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.card-favorito-compacto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(216, 85, 155, 0.1);
+}
+
+.foto-favorito-compacta {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.info-favorito-compacta {
+    flex: 1;
+}
+
+.nome-favorito-compacto {
+    color: #6C3A56;
+    margin: 0 0 5px 0;
+    font-size: 1.15rem;
+}
+
+.especialidade-favorito-compacto {
+    color: #D8559B;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Estado Vazio (Sem favoritos) */
+.estado-vazio {
+    grid-column: span 2;
+    background: #FFFFFF;
+    border: 2px dashed #D8559B;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    color: #9B356F;
+}
+
+.btn-link-vazio {
+    display: inline-block;
+    margin-top: 15px;
+    color: #D8559B;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #D8559B;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-link-vazio:hover {
+    background-color: #D8559B;
+    color: white;
+}

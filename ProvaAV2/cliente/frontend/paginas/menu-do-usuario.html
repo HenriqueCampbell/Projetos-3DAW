@@ -1,13 +1,102 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Estética - Menu do Usuário</title>
+    <title>Menu do Usuário - Clínica Estética</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/menu-do-usuario.css">
+</head>
+<body style="background: linear-gradient(180deg, #FFD6E9 50%, #ffffff 100%); min-height: 100vh; margin: 0;">
 
-</head> 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="especialidades.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html">Reservar</a></li>
+                <li><a id="link-login" href="login.html" class="ativo">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <body>
+    <main class="container-painel">
+        <div class="barra-usuario">
+            <div class="caixa-creditos">
+                <span class="label-creditos">Meus Créditos:</span>
+                <span class="valor-creditos" id="qtd-creditos">0</span>
+            </div>
+            <div class="menu-perfil">
+                <span class="nome-usuario" id="nome-perfil">Carregando...</span>
+                <div class="foto-placeholder"></div>
+                <a href="../../backend/logout.php" class="btn-sair">sair</a>
+            </div>
+        </div>
 
-        <h1> PLaceholder placeholder</h1>
-    </body>
+        <section class="secao-boas-vindas">
+            <h1 class="titulo-boas-vindas">Seja bem vindo ao<br><span class="desalinhamento-estetico">Menu do Usuário</span></h1>
+            <p class="subtitulo-boas-vindas">
+                Aqui você pode verificar suas reservas agendadas e acompanhar quantos créditos você acumulou com nosso programa de fidelidade.
+            </p>
+        </section>
+
+        <section class="secao-painel">
+            <h2 class="titulo-secao">Ganhe Créditos ao reservar!</h2>
+            <div class="card-horizontal">
+                <div class="trilha-fidelidade">
+                    <div class="ponto-trilha concluido">
+                        <div class="circulo">1ª</div>
+                        <span>Reserva Feita!</span>
+                    </div>
+                    <div class="seta-trilha">➔</div>
+                    <div class="ponto-trilha concluido">
+                        <div class="circulo">2ª</div>
+                        <span>Reserva Feita!</span>
+                    </div>
+                    <div class="seta-trilha">➔</div>
+                    <div class="ponto-trilha">
+                        <div class="circulo">3ª</div>
+                        <span>3ª Reserva</span>
+                    </div>
+                    <div class="seta-trilha">➔</div>
+                    <div class="ponto-trilha ativo">
+                        <div class="circulo">500</div>
+                        <span>Créditos! 4ª Reserva</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-painel">
+            <h2 class="titulo-secao">Reservas</h2>
+            <div id="container-reservas">
+                <div class="card-horizontal reserva-card">
+                    <div class="detalhes-reserva">
+                        <p class="data-hora-reserva" style="font-size: 1.2rem; color: #6C3A56; margin: 0;">
+                            Nenhum serviço agendado.
+                        </p>
+                    </div>
+                    <button class="btn-reservar-agora" onclick="window.location.href='reservar.html'">
+                        Reserve Agora
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-painel">
+            <h2 class="titulo-secao">Profissionais Favoritados</h2>
+            <div id="container-favoritos" class="grid-favoritos">
+                </div>
+        </section>
+    </main>
+
+    <script src="../js/menu-do-usuario.js"></script>
+</body>
+</html>
