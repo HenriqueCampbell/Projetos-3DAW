@@ -59,6 +59,37 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(erro => {
         console.error("Erro ao carregar os dados do painel:", erro);
     });
+
+    // Captura os elementos do modal
+    const linkSair = document.querySelector('.btn-sair');
+    const modalLogout = document.getElementById('modal-logout');
+    const btnConfirmarSair = document.getElementById('btn-confirmar-sair');
+    const btnCancelarSair = document.getElementById('btn-cancelar-sair');
+
+    if (linkSair && modalLogout) {
+        // Quando clicar em "sair", barra o redirecionamento padrão e mostra o modal
+        linkSair.addEventListener('click', (evento) => {
+            evento.preventDefault(); // Impede o navegador de ir direto para o logout.php
+            modalLogout.style.display = 'flex'; // Abre a caixinha na tela
+        });
+
+        // Se clicar em "Não, voltar", esconde o modal novamente
+        btnCancelarSair.addEventListener('click', () => {
+            modalLogout.style.display = 'none';
+        });
+
+        // Se clicar em "Sim, quero sair", manda de verdade para o back-end deslogar
+        btnConfirmarSair.addEventListener('click', () => {
+            window.location.href = '../../backend/logout.php';
+        });
+
+        // Fecha o modal se o usuário clicar no fundo escuro por fora do card
+        modalLogout.addEventListener('click', (evento) => {
+            if (evento.target === modalLogout) {
+                modalLogout.style.display = 'none';
+            }
+        });
+    }
 });
 
 function atualizarTrilhaFidelidade(quantidadeConcluidas) {

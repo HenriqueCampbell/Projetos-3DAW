@@ -276,3 +276,83 @@
     background-color: #D8559B;
     color: white;
 }
+
+.fundo-modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(108, 58, 86, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-modal {
+    background-color: #FFFFFF;
+    border: 2px solid #D8559B;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: abrirModal 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.titulo-modal {
+    color: #6C3A56;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+}
+
+.botoes-modal {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-modal-sim, .btn-modal-nao {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-modal-sim {
+    background-color: #D8559B;
+    color: white;
+}
+
+.btn-modal-sim:hover {
+    background-color: #be3983;
+}
+
+.btn-modal-nao {
+    background-color: transparent;
+    border: 2px solid #6C3A56;
+    color: #6C3A56;
+}
+
+.btn-modal-nao:hover {
+    background-color: #6C3A56;
+    color: white;
+}
+
+@keyframes abrirModal {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
