@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Serviços - Clínica Estética</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/reservar.css">
+</head>
+<body style="background-color: #FFF0F6; min-height: 100vh; margin: 0;">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="especialidades.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html" class="ativo">Reservar</a></li>
+                <li><a id="link-login" href="login.html">Menu do Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <button id="btn-carrinho-flutuante" class="carrinho-flutuante">
+        <img src="../assets/imagens/icone-carrinho.png" alt="Carrinho" class="img-icone-carrinho">
+        <span id="contador-carrinho-badge">0</span>
+    </button>
+
+    <div id="overlap-carrinho" class="overlap-carrinho">
+        <div class="conteudo-carrinho">
+            <div class="topo-carrinho">
+                <h3>Seu Carrinho</h3>
+                <button id="btn-fechar-carrinho" class="btn-fechar">
+                    <img src="../assets/imagens/icone-fechar.png" alt="Fechar">
+                </button>
+            </div>
+            <div id="lista-itens-carrinho" class="lista-itens-carrinho">
+                <p class="carrinho-vazio">Nenhum serviço selecionado ainda.</p>
+            </div>
+            <div class="rodape-carrinho">
+                <div class="total-carrinho">
+                    <span>Total estimado:</span>
+                    <span id="valor-total-carrinho">R$ 0,00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container-painel">
+        <section class="secao-intro-servicos">
+            <h1 class="titulo-pagina">Serviços Disponíveis</h1>
+            <p class="subtitulo-pagina">
+                Encontre abaixo todos os nossos serviços, organizados por especialidade. Marque os serviços que deseja contratar. Aqueles identificados com o símbolo <img src="../assets/imagens/icone-pacote.png" alt="Pacote" class="icone-inline"> fazem parte de pacotes promocionais.
+            </p>
+        </section>
+
+        <div id="container-cardapio-servicos" class="grid-cardapio">
+            </div>
+
+        <div class="container-acao-final">
+            <button id="btn-prosseguir-checkout" class="btn-checkout-principal">
+                Reservar (0) Serviços Selecionados
+            </button>
+        </div>
+    </main>
+
+    <div id="container-toasts"></div>
+
+    <script src="../js/reservar.js"></script>
+</body>
+</html>
