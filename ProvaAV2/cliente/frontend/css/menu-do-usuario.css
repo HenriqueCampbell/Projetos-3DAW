@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. DEFINIÇÕES GERAIS E ESTRUTURA DO PAINEL
+   ========================================================================== */
 .container-painel {
     max-width: 1100px;
     margin: 0 auto;
@@ -5,6 +8,7 @@
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
+/* Estrutura de Duas Colunas Paralelas (Superior) */
 .layout-principal-superior {
     display: flex;
     justify-content: space-between;
@@ -23,6 +27,9 @@
     align-items: flex-end;
 }
 
+/* ==========================================================================
+   2. BARRA DE USUÁRIO E PERFIL (CANTO SUPERIOR DIREITO)
+   ========================================================================== */
 .barra-usuario-direita {
     display: flex;
     align-items: center;
@@ -37,14 +44,14 @@
 }
 
 .icone-moeda, .icone-inline {
-    width: 24px;
-    height: 24px;
+    width: 45px;
+    height: 45px;
     vertical-align: middle;
 }
 
 .valor-creditos {
     color: #D8559B;
-    font-size: 1.5rem;
+    font-size: 2.3rem;
     font-weight: 600;
 }
 
@@ -71,17 +78,20 @@
 .nome-usuario {
     color: #6C3A56;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .btn-sair {
     color: #D8559B;
     text-decoration: underline;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     margin-left: 5px;
 }
 
+/* ==========================================================================
+   3. TEXTOS E ANCORAGEM CONCEITUAL
+   ========================================================================== */
 .secao-boas-vindas {
     margin-bottom: 35px;
 }
@@ -95,7 +105,7 @@
 }
 
 .desalinhamento-estetico {
-    margin-left: 45px;
+    margin-left: 85px;
 }
 
 .subtitulo-boas-vindas {
@@ -107,36 +117,104 @@
 
 .titulo-secao {
     color: #D8559B;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     margin: 0 0 15px 0;
 }
 
 .titulo-secao-reservas {
     color: #D8559B;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     margin: 0 0 10px 0;
     text-align: center;
     width: 100%;
 }
 
+/* ==========================================================================
+   4. SISTEMA DE TRILHA DE FIDELIDADE
+   ========================================================================== */
 .card-fidelidade {
     background-color: #FFFFFF;
     border: 2px solid #D8559B;
     border-radius: 15px;
-    padding: 15px;
+    padding: 25px 30px; /* Aumentado o padding interno para dar mais respiro */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.imagem-trilha-fidelidade {
     width: 100%;
-    max-width: 550px;
-    height: auto;
+    box-sizing: border-box;
 }
 
+.linha-fidelidade {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 640px; /* Boost no tamanho máximo horizontal do card interno */
+    gap: 12px;
+}
+
+.etapa-fidelidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 90px;
+}
+
+.img-etapa {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+}
+
+.txt-etapa {
+    color: #9B356F;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.etapa-fidelidade.concluida .txt-etapa {
+    color: #D8559B;
+}
+
+.seta-fidelidade {
+    color: #D8559B;
+    font-size: 1.5rem;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-premio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 68px; /* Ajustado proporcionalmente com as imagens */
+    height: 68px;
+    color: #D8559B;
+}
+
+.txt-valor-premio {
+    font-size: 1.35rem; /* Número 500 ligeiramente maior */
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+}
+
+.icone-premio-moeda {
+    width: 24px;
+    height: 24px;
+    margin-top: 3px;
+}
+
+/* ==========================================================================
+   5. BLOCO DE RESERVAS (DIREITA)
+   ========================================================================== */
 .secao-reservas-lateral {
     width: 100%;
     max-width: 340px;
@@ -186,6 +264,9 @@
     background-color: #be3983;
 }
 
+/* ==========================================================================
+   6. SEÇÃO DE FAVORITOS
+   ========================================================================== */
 .secao-favoritos-inferior {
     margin-top: 40px;
 }
@@ -197,45 +278,77 @@
 }
 
 .card-favorito-figma {
-    background-color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
     border: 2px solid #D8559B;
+    border-radius: 20px;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    
+    box-shadow: 0 10px 30px rgba(194, 24, 91, 0.05);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.3s ease,
+                opacity 0.4s ease, 
+                transform 0.4s ease;
+}
+
+.card-favorito-figma:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(194, 24, 91, 0.12);
 }
 
 .cabecalho-favorito {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 15px;
+    padding-right: 45px;
 }
 
 .nome-favorito {
-    color: #6C3A56;
+    color: #C2185B;
     font-size: 1.8rem;
-    font-weight: 600;
     margin: 0;
 }
 
 .estrela-favorito {
-    width: 30px;
-    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.estrela-favorito:hover {
+    transform: scale(1.1);
 }
 
 .corpo-favorito {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 20px;
     align-items: flex-start;
 }
 
 .foto-favorito {
-    width: 130px;
-    height: 140px;
+    width: 120px;
+    height: 150px;
     object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.card-favorito-figma:hover .foto-favorito {
+    transform: scale(1.02);
 }
 
 .detalhes-favorito {
@@ -246,26 +359,38 @@
     color: #D8559B;
     font-size: 1.1rem;
     font-weight: 600;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
 }
 
 .descricao-favorito {
-    color: #6C3A56;
+    color: #7A4551;
     font-size: 0.95rem;
     line-height: 1.4;
     margin: 0;
 }
 
 .btn-reservar-profissional {
-    background-color: #FF96D5;
+    background-color: #FF8ECA;
+    font-family: 'Inter', sans-serif;
     color: #FFFFFF;
     border: none;
-    padding: 10px 0;
-    width: 100%;
-    font-size: 0.95rem;
-    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
     text-align: center;
+}
+
+.btn-reservar-profissional:hover {
+    background-color: #8B3973; 
+}
+
+.card-favorito-figma.remover-puff {
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0;
 }
 
 .estado-vazio {
@@ -289,13 +414,13 @@
     border-radius: 6px;
 }
 
+/* ==========================================================================
+   7. MODAL DE CONFIRMAÇÃO DE LOGOUT
+   ========================================================================== */
 .fundo-modal {
     display: none; 
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(108, 58, 86, 0.5);
     backdrop-filter: blur(5px);
     z-index: 2000;
@@ -338,33 +463,19 @@
     transition: all 0.2s ease;
 }
 
-.btn-modal-sim {
-    background-color: #D8559B;
-    color: white;
-}
-
-.btn-modal-sim:hover {
-    background-color: #be3983;
-}
-
-.btn-modal-nao {
-    background-color: transparent;
-    border: 2px solid #6C3A56;
-    color: #6C3A56;
-}
-
-.btn-modal-nao:hover {
-    background-color: #6C3A56;
-    color: white;
-}
+.btn-modal-sim { background-color: #D8559B; color: white; }
+.btn-modal-sim:hover { background-color: #be3983; }
+.btn-modal-nao { background-color: transparent; border: 2px solid #6C3A56; color: #6C3A56; }
+.btn-modal-nao:hover { background-color: #6C3A56; color: white; }
 
 @keyframes abrirModal {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 850px) {
+    .layout-principal-superior { flex-direction: column; }
+    .coluna-direita { align-items: center; }
+    .grid-favoritos { grid-template-columns: 1fr; }
 }

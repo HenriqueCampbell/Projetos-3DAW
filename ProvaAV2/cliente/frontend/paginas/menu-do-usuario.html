@@ -30,6 +30,7 @@
     <main class="container-painel">
         
         <div class="layout-principal-superior">
+            
             <div class="coluna-esquerda">
                 <section class="secao-boas-vindas">
                     <h1 class="titulo-boas-vindas">Seja bem-vindo ao<br><span class="desalinhamento-estetico">Menu do Usuário</span></h1>
@@ -41,12 +42,41 @@
                 <section class="secao-fidelidade">
                     <h2 class="titulo-secao">Ganhe Créditos ao reservar!</h2>
                     <div class="card-fidelidade">
-                        <img src="../assets/imagens/trilha-fidelidade.png" alt="Progresso da Fidelidade" class="imagem-trilha-fidelidade">
+                        <div class="linha-fidelidade" id="trilha-fidelidade">
+                            
+                            <div class="etapa-fidelidade" id="etapa-1">
+                                <img src="../assets/imagens/icone-fidelidade-incompleta.png" alt="1ª Reserva" class="img-etapa">
+                                <span class="txt-etapa">1ª Reserva</span>
+                            </div>
+                            
+                            <div class="seta-fidelidade">➔</div>
+                            
+                            <div class="etapa-fidelidade" id="etapa-2">
+                                <img src="../assets/imagens/icone-fidelidade-incompleta.png" alt="2ª Reserva" class="img-etapa">
+                                <span class="txt-etapa">2ª Reserva</span>
+                            </div>
+                            
+                            <div class="seta-fidelidade">➔</div>
+                            
+                            <div class="etapa-fidelidade" id="etapa-3">
+                                <img src="../assets/imagens/icone-fidelidade-incompleta.png" alt="3ª Reserva" class="img-etapa">
+                                <span class="txt-etapa">3ª Reserva</span>
+                            </div>
+                            
+                            <div class="seta-fidelidade">➔</div>
+                            
+                            <div class="etapa-fidelidade etapa-premio" id="etapa-4">
+                                <div class="box-premio">
+                                    <span class="txt-valor-premio">500 Créditos!</span>
+                                    <img src="../assets/imagens/icone-credito.png" alt="Créditos" class="icone-premio-moeda">
+                                </div>
+                                <span class="txt-etapa">4ª Reserva</span>
+                            </div>
+
+                        </div>
                     </div>
                 </section>
-            </div>
-
-            <div class="coluna-direita">
+            </div> <div class="coluna-direita">
                 <div class="barra-usuario-direita">
                     <div class="caixa-creditos">
                         <img src="../assets/imagens/icone-credito.png" alt="Moeda de Crédito" class="icone-moeda">
@@ -54,7 +84,7 @@
                     </div>
                     <div class="menu-perfil">
                         <div class="foto-placeholder">
-                            <img src="../assets/imagens/avatar-padrao.png" alt="Foto do Usuário" id="foto-usuario-perfil">
+                            <img src="../assets/imagens/icone-avatar-padrao.png" alt="Foto do Usuário" id="foto-usuario-perfil">
                         </div>
                         <span class="nome-usuario" id="nome-perfil">Carregando...</span>
                         <a href="../../backend/logout.php" class="btn-sair">sair</a>
@@ -69,9 +99,8 @@
                     </div>
                 </section>
             </div>
-        </div>
 
-        <section class="secao-favoritos-inferior">
+        </div> <section class="secao-favoritos-inferior">
             <h2 class="titulo-secao">Profissionais Favoritados</h2>
             <div id="container-favoritos" class="grid-favoritos">
                 </div>

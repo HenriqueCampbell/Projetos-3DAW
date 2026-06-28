@@ -15,12 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Preenche dados básicos e créditos
+        // 1. Preenche dados básicos e créditos
         const primeiroNome = dadosUsuario.nome.split(' ')[0];
         document.getElementById('nome-perfil').innerText = primeiroNome;
         document.getElementById('qtd-creditos').innerText = dadosUsuario.creditos;
+        
+        // 2. Atualiza os relógios dinâmicos da trilha de fidelidade
+        atualizarTrilhaFidelidade(dadosUsuario.reservas_concluidas);
 
-        // Preenche os agendamentos ativos se houver registros
+        // 3. Preenche os agendamentos ativos se houver registros
         const containerReservas = document.getElementById('container-reservas');
         if (dadosUsuario.reservas_ativas && dadosUsuario.reservas_ativas.length > 0) {
             containerReservas.innerHTML = '';
@@ -44,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             containerReservas.appendChild(btnMais);
         }
 
-        // Monta o Grid de Favoritos em duas colunas verticais
+        // 4. Monta o Grid de Favoritos em duas colunas com o efeito Glassmorphism
         const containerFavoritos = document.getElementById('container-favoritos');
         containerFavoritos.innerHTML = ''; 
 
@@ -66,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.innerHTML = `
                     <div class="cabecalho-favorito">
                         <h3 class="nome-favorito">${f.nome}</h3>
-                        <img src="../assets/imagens/estrela-cheia.png" alt="Favorito" class="estrela-favorito">
+                        <img src="../assets/imagens/estrela-cheia.png" alt="Remover Favorito" class="estrela-favorito" data-id="${f.id}">
                     </div>
                     <div class="corpo-favorito">
                         <img src="${f.foto}" alt="${f.nome}" class="foto-favorito">
@@ -75,8 +78,48 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="descricao-favorito">${f.descricao}</p>
                         </div>
                     </div>
-                    <button class="btn-reservar-profissional" onclick="window.location.href='reservar.html?profissional=${f.id}'">Reservar Serviços com ${f.nome}</button>
+                    <button class="btn-reservar-profissional" onclick="window.location.href='reservar.html?profissional=${f.id}'">Reservar com ${f.nome}</button>
                 `;
+                
+
+                const estrela = card.querySelector('.estrela-favorito');
+                estrela.addEventListener('click', (evento) => {
+                    evento.stopPropagation();
+
+                    console.log("Clique na estrela detectado! Tentando remover o funcionário ID:", f.id);
+                    
+                    // Aplica o efeito visual puff
+                    card.classList.add('remover-puff');
+                    
+                    // Avisa o banco de dados via fetch
+                    fetch('../../backend/remover_favorito.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `funcionario_id=${f.id}`,
+                        credentials: 'include'
+                    })
+                    .then(res => res.json())
+                    .then(resposta => {
+                        if (resposta.sucesso) {
+                            setTimeout(() => {
+                                card.remove();
+                                if (containerFavoritos.children.length === 0) {
+                                    containerFavoritos.innerHTML = `
+                                        <div class="estado-vazio">
+                                            <p style="margin: 0; font-size: 1.1rem; font-weight: 600;">Você não favoritou nenhum funcionário ainda.</p>
+                                            <a href="profissionais.html" class="btn-link-vazio">Conhecer Profissionais</a>
+                                        </div>
+                                    `;
+                                }
+                            }, 400);
+                        } else {
+                            card.classList.remove('remover-puff');
+                            console.error("Erro ao remover favorito:", resposta.erro);
+                        }
+                    })
+                    .catch(() => card.classList.remove('remover-puff'));
+                });
+
                 containerFavoritos.appendChild(card);
             });
         }
@@ -101,3 +144,32 @@ document.addEventListener('DOMContentLoaded', () => {
         modalLogout.addEventListener('click', (e) => { if (e.target === modalLogout) modalLogout.style.display = 'none'; });
     }
 });
+
+function atualizarTrilhaFidelidade(quantidadeConcluidas) {
+    for (let i = 1; i <= 3; i++) {
+        const blocoEtapa = document.getElementById(`etapa-${i}`);
+        if (!blocoEtapa) continue;
+        
+        const imagem = blocoEtapa.querySelector('.img-etapa');
+        const texto = blocoEtapa.querySelector('.txt-etapa');
+        
+        if (i <= quantidadeConcluidas) {
+            blocoEtapa.classList.add('concluida');
+            imagem.src = '../assets/imagens/icone-fidelidade-confirmada.png';
+            texto.innerText = `${i}ª Reserva Feita!`;
+        } else {
+            blocoEtapa.classList.remove('concluida');
+            imagem.src = '../assets/imagens/icone-fidelidade-incompleta.png';
+            texto.innerText = `${i}ª Reserva`;
+        }
+    }
+    
+    const etapa4 = document.getElementById('etapa-4');
+    if (etapa4) {
+        if (quantidadeConcluidas >= 4) {
+            etapa4.classList.add('concluida');
+        } else {
+            etapa4.classList.remove('concluida');
+        }
+    }
+}
