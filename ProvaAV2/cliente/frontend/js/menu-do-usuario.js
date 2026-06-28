@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 1. Preenche dados básicos e créditos
+        // Preenche dados básicos e créditos
         const primeiroNome = dadosUsuario.nome.split(' ')[0];
         document.getElementById('nome-perfil').innerText = primeiroNome;
         document.getElementById('qtd-creditos').innerText = dadosUsuario.creditos;
 
-        // 2. Preenche os agendamentos ativos se houver registros
+        // Preenche os agendamentos ativos se houver registros
         const containerReservas = document.getElementById('container-reservas');
         if (dadosUsuario.reservas_ativas && dadosUsuario.reservas_ativas.length > 0) {
             containerReservas.innerHTML = '';
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             containerReservas.appendChild(btnMais);
         }
 
-        // 3. Monta o Grid de Favoritos em duas colunas verticais
+        // Monta o Grid de Favoritos em duas colunas verticais
         const containerFavoritos = document.getElementById('container-favoritos');
         containerFavoritos.innerHTML = ''; 
 
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             idsFavoritos.includes(Number(f.id)) || idsFavoritos.includes(String(f.id))
         );
 
-        if (favoritosFilitados.length === 0) {
+        if (favoritosFiltrados.length === 0) {
             containerFavoritos.innerHTML = `
                 <div class="estado-vazio">
                     <p style="margin: 0; font-size: 1.1rem; font-weight: 600;">Você não favoritou nenhum funcionário ainda.</p>

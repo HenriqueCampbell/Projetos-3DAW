@@ -16,7 +16,7 @@ require_once 'conexao.php';
 $usuarioId = $_SESSION['usuario_id'];
 
 try {
-    // 1. Busca os dados reais do Usuário
+    // Busca os dados reais do Usuário
     $stmtUser = $pdo->prepare("SELECT nome, creditos FROM usuarios WHERE id = :id");
     $stmtUser->execute([':id' => $usuarioId]);
     $usuario = $stmtUser->fetch(PDO::FETCH_ASSOC);
@@ -26,12 +26,12 @@ try {
         exit;
     }
 
-    // 2. Conta agendamentos concluídos baseando-se na tabela real 'agendamentos'
+    // Conta agendamentos concluídos baseando-se na tabela real 'agendamentos'
     $stmtTrilha = $pdo->prepare("SELECT COUNT(*) FROM agendamentos WHERE usuario_id = :id AND LOWER(status) = 'concluido'");
     $stmtTrilha->execute([':id' => $usuarioId]);
     $reservasConcluidas = (int)$stmtTrilha->fetchColumn();
 
-    // 3. Pega próximos agendamentos ativos fazendo JOIN com os itens do agendamento
+    // Pega próximos agendamentos ativos fazendo JOIN com os itens do agendamento
     $stmtReservas = $pdo->prepare("
         SELECT 
             DATE(a.data_hora) AS data, 
