@@ -68,6 +68,15 @@
     font-weight: 600;
 }
 
+.icone-inline-pacote {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-left: 4px;
+    display: inline-block;
+}
+
 /* Área interna dos serviços */
 .lista-itens-categoria {
     flex: 1;
@@ -191,10 +200,6 @@
 
 .topo-carrinho h3 { margin: 0; font-size: 1.4rem; }
 
-.btn-fechar {
-    background: none; border: none; color: #D8559B; font-size: 1.2rem; cursor: pointer;
-}
-
 .lista-itens-carrinho {
     flex: 1;
     overflow-y: auto;
@@ -246,10 +251,18 @@
     object-fit: contain;
 }
 
-.btn-fechar img {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
+.btn-fechar {
+    background: none;
+    border: none;
+    color: #D8559B;
+    font-size: 1.4rem; /* Deixa o '✕' num tamanho excelente */
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-fechar:hover {
+    color: #6C3A56; /* Dá um tom escuro charmoso quando passa o mouse */
 }
 
 .icone-inline {

@@ -6,10 +6,10 @@
     "imagem": "../assets/imagens/icone-tesoura.png",
     "profissionais": ["José"],
     "itens": [
-      { "id": 101, "nome": "Corte Simples Feminino", "preco_centavos": 8000, "duracao_minutos": 60 },
+      { "id": 101, "nome": "Corte Simples Feminino", "preco_centavos": 8000, "duracao_minutos": 60, "em_pacote": true },
       { "id": 102, "nome": "Pintar Cabelo", "preco_centavos": 12000, "duracao_minutos": 180 },
       { "id": 103, "nome": "Progressiva Curto", "preco_centavos": 7000, "duracao_minutos": 180 },
-      { "id": 104, "nome": "Corte Máquina Disfarçado", "preco_centavos": 5000, "duracao_minutos": 25 }
+      { "id": 104, "nome": "Corte Máquina Disfarçado", "preco_centavos": 5000, "duracao_minutos": 25, "em_pacote": true }
     ]
   },
   {
@@ -20,7 +20,7 @@
     "profissionais": ["João", "Matheus"],
     "itens": [
       { "id": 201, "nome": "Colocação de Unhas de Gel", "preco_centavos": 7000, "duracao_minutos": 30 },
-      { "id": 202, "nome": "Banho de Fibra", "preco_centavos": 7000, "duracao_minutos": 30 },
+      { "id": 202, "nome": "Banho de Fibra", "preco_centavos": 7000, "duracao_minutos": 30, "em_pacote": true },
       { "id": 203, "nome": "Manuntenção de Unhas de Gel", "preco_centavos": 5000, "duracao_minutos": 30 }
     ]
   },
@@ -41,7 +41,7 @@
     "imagem": "../assets/imagens/icone-barbeiro.png",
     "profissionais": ["Pedro"],
     "itens": [
-      { "id": 401, "nome": "Barba Simples", "preco_centavos": 4000, "duracao_minutos": 20 },
+      { "id": 401, "nome": "Barba Simples", "preco_centavos": 4000, "duracao_minutos": 20, "em_pacote": true },
       { "id": 402, "nome": "Barba Pigmentada", "preco_centavos": 6000, "duracao_minutos": 30 },
       { "id": 403, "nome": "Corte Undercut", "preco_centavos": 5000, "duracao_minutos": 30 }
     ]
@@ -54,7 +54,7 @@
     "profissionais": ["Miriam"],
     "itens": [
       { "id": 501, "nome": "Sobrancelha Masculina", "preco_centavos": 3000, "duracao_minutos": 20 },
-      { "id": 502, "nome": "Design de Sobrancelha", "preco_centavos": 4000, "duracao_minutos": 30 }
+      { "id": 502, "nome": "Design de Sobrancelha", "preco_centavos": 4000, "duracao_minutos": 30, "em_pacote": true }
     ]
   }
 ]
