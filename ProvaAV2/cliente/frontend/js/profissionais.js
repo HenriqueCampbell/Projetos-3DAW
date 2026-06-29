@@ -26,11 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const card = document.createElement('div');
             card.className = 'cartao-funcionario';
+            
+            let categoriaAlvo = "cabelo"; 
+            const esp = profissional.especialidade.toLowerCase();
+
+            if (esp.includes("manicure") || esp.includes("unha")) {
+                categoriaAlvo = "manicure";
+            } else if (esp.includes("massagista") || esp.includes("massagem")) {
+                categoriaAlvo = "massagens";
+            } else if (esp.includes("barba") || esp.includes("barbeiro")) {
+                categoriaAlvo = "barba";
+            } else if (esp.includes("sobrancelha") || esp.includes("design")) {
+                categoriaAlvo = "sobrancelhas";
+            }
 
             // Preenche o HTML interno injetando a estrela certa dinamicamente
             card.innerHTML = `
                 <img src="${imagemEstrela}" alt="Favoritar" class="icone-favorito" data-id="${profissional.id}">
-                
                 <img src="${profissional.foto}" alt="${profissional.nome}" class="foto-funcionario">
                 
                 <div class="info-funcionario">
@@ -41,7 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     <p class="descricao">${profissional.descricao}</p>
                     
-                    <button class="btn-reservar">Reservar com ${profissional.nome}</button>
+                    <button class="btn-reservar" onclick="window.location.href='reservar.html?categoria=${categoriaAlvo}'">
+                        Reservar com ${profissional.nome}
+                    </button>
+                    
                 </div>
             `;
 

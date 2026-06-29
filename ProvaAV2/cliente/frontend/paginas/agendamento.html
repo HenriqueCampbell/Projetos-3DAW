@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Estética - Agendamento</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2 family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/agendamento.css">
+</head>
+<body style="background-color: #FFF0F6; min-height: 100vh; margin: 0;">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="especialidades.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html" class="ativo">Reservar</a></li>
+                <li><a id="link-login" href="login.html">Menu do Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-painel">
+        <h1 class="titulo-principal">Reserve Serviços</h1>
+
+        <div class="layout-agendamento">
+            
+            <div class="card-resumo-esquerdo">
+                <div class="topo-perfil-resumo">
+                    <img src="../assets/imagens/icone-avatar-padrao.png" alt="Usuário" class="avatar-resumo">
+                    <div class="txt-perfil-box">
+                        <span>Agendamento de <strong id="nome-cliente-resumo">Carregando...</strong></span>
+                        <a href="../../backend/logout.php" class="btn-sair-resumo">sair</a>
+                    </div>
+                </div>
+
+                <div class="linha-duracao-total">
+                    <img src="../assets/imagens/icone-relogio-agendamento.png" alt="Duração" class="icone-relogio-resumo">
+                    <div class="txt-duracao">
+                        <span>Duração estimada dos serviços selecionados:</span>
+                        <strong id="tempo-total-estimado">0h00</strong>
+                    </div>
+                </div>
+
+                <div id="lista-servicos-confirmados" class="lista-servicos-checks">
+                    </div>
+            </div>
+
+            <div class="card-painel-interativo-direito">
+                <div class="barra-filtro-profissional">
+                    <span>Filtro por Profissional: <strong class="status-desativado">Desativado</strong></span>
+                </div>
+
+                <div id="etapa-calendario" class="conteudo-etapa">
+                    <h2 class="sub-titulo-etapa">Selecione uma data</h2>
+                    
+                    <div class="navegacao-mes">
+                        <button id="btn-mes-anterior" class="seta-mes">◀</button>
+                        <span id="nome-mes-ano-atual" class="rotulo-mes-ano">Junho 2026</span>
+                        <button id="btn-mes-proximo" class="seta-mes">▶</button>
+                    </div>
+
+                    <div class="grid-calendario-dias">
+                        <div class="dia-semana-label">DOM</div>
+                        <div class="dia-semana-label">SEG</div>
+                        <div class="dia-semana-label">TER</div>
+                        <div class="dia-semana-label">QUA</div>
+                        <div class="dia-semana-label">QUI</div>
+                        <div class="dia-semana-label">SEX</div>
+                        <div class="dia-semana-label">SÁB</div>
+                        <div id="dias-numericos-container" class="sub-grid-dias"></div>
+                    </div>
+
+                    <p class="aviso-rodape-calendario">Não abrimos aos domingos.</p>
+                </div>
+
+                <div id="etapa-horarios" class="conteudo-etapa oculto">
+                    <h2 class="sub-titulo-etapa">Selecione um Horário</h2>
+                    <p id="label-data-selecionada" class="sub-label-data">Terça-Feira, 24 de Junho</p>
+                    <p class="legenda-concorrido">Horários marcados com o símbolo <img src="../assets/imagens/icone-exclamacao.png" alt="Aviso" class="icone-inline-aviso"> são altamente concorridos e estão sujeitos a filas.</p>
+
+                    <div id="container-lista-horarios" class="grid-botoes-horarios">
+                        </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <a href="reservar.html" class="btn-voltar-link">➔ Voltar</a>
+    </main>
+
+    <div id="container-toasts"></div>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/agendamento.js"></script>
+</body>
+</html>

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2 style="margin: 15px 0 0 0; font-size: 1.4rem;">${esp.categoria}</h2>
                     <div class="conteudo-extra">
                         <p>${esp.descricao}</p>
-                        <a href="cardapio.html?categoria=${encodeURIComponent(esp.categoria)}" class="btn-explorar" style="text-decoration: none; display: inline-block;">
+                        <a href="reservar.html?categoria=${encodeURIComponent(esp.categoria)}" class="btn-explorar" style="text-decoration: none; display: inline-block;">
                             Explorar serviços
                         </a>
                     </div>

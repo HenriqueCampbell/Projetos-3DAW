@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => { window.location.href = 'login.html'; }, 1500);
                 } else {
                     localStorage.setItem('carrinho_ativo', JSON.stringify(carrinho));
-                    window.location.href = 'checkout_agendamento.html';
+                    window.location.href = 'agendamento.html';
                 }
             })
             .catch(() => mostrarToast("Erro de comunicação com o servidor."));
