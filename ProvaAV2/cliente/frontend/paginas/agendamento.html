@@ -53,11 +53,7 @@
                     </div>
             </div>
 
-            <div class="card-painel-interativo-direito">
-                <div class="barra-filtro-profissional">
-                    <span>Filtro por Profissional: <strong class="status-desativado">Desativado</strong></span>
-                </div>
-
+           <div class="card-painel-interativo-direito">
                 <div id="etapa-calendario" class="conteudo-etapa">
                     <h2 class="sub-titulo-etapa">Selecione uma data</h2>
                     
@@ -82,6 +78,20 @@
                 </div>
 
                 <div id="etapa-horarios" class="conteudo-etapa oculto">
+                    <div class="topo-etapa-horarios">
+                        <h2 class="sub-titulo-etapa">Selecione um Horário</h2>
+                        <button id="btn-voltar-calendario" class="btn-alterar-data">🔄 Alterar Data</button>
+                    </div>
+                    <p id="label-data-selecionada" class="sub-label-data">Terça-Feira, 24 de Junho</p>
+                    <p class="legenda-concorrido">Horários marcados com o símbolo <img src="../assets/imagens/icone-exclamacao.png" alt="Aviso" class="icone-inline-aviso"> são altamente concorridos e estão sujeitos a filas.</p>
+
+                    <div id="container-lista-horarios" class="grid-botoes-horarios">
+                        </div>
+                </div>
+
+            </div>
+
+                <div id="etapa-horarios" class="conteudo-etapa oculto">
                     <h2 class="sub-titulo-etapa">Selecione um Horário</h2>
                     <p id="label-data-selecionada" class="sub-label-data">Terça-Feira, 24 de Junho</p>
                     <p class="legenda-concorrido">Horários marcados com o símbolo <img src="../assets/imagens/icone-exclamacao.png" alt="Aviso" class="icone-inline-aviso"> são altamente concorridos e estão sujeitos a filas.</p>
@@ -94,7 +104,7 @@
 
         </div>
 
-        <a href="reservar.html" class="btn-voltar-link">➔ Voltar</a>
+        <a href="reservar.html" class="btn-voltar-link">◀ Voltar para Serviços</a>
     </main>
 
     <div id="container-toasts"></div>

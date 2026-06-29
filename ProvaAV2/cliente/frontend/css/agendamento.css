@@ -43,7 +43,8 @@
 .avatar-resumo {
     width: 45px;
     height: 45px;
-    object-fit: contain;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .txt-perfil-box {
@@ -186,6 +187,14 @@
     background: #D8559B !important; color: white !important; font-weight: 600;
 }
 
+.dia-numero.inativo {
+    color: #D6C2CC !important;
+    background-color: #F5EAEF !important;
+    cursor: not-allowed !important;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
 .aviso-rodape-calendario {
     color: #9B356F; font-size: 0.9rem; margin-top: 25px; text-align: left;
 }
@@ -210,6 +219,13 @@
     max-height: 250px;
     overflow-y: auto;
     padding-right: 5px;
+}
+
+.topo-etapa-horarios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .btn-horario-opcao {
@@ -243,9 +259,36 @@
     object-fit: contain;
 }
 
-/* Voltar Link */
+.btn-alterar-data {
+    background: none;
+    border: 1px solid #D8559B;
+    color: #D8559B;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-alterar-data:hover {
+    background-color: #D8559B;
+    color: white;
+}
+
 .btn-voltar-link {
-    display: inline-block; margin-top: 20px; color: #D8559B; font-weight: 600; text-decoration: none; transform: scaleX(-1); width: max-content;
+    display: inline-block; 
+    margin-top: 20px; 
+    color: #D8559B; 
+    font-weight: 600; 
+    text-decoration: none; 
+    font-size: 1.05rem;
+    transition: color 0.2s;
+}
+
+.btn-voltar-link:hover {
+    color: #6C3A56;
 }
 
 .oculto { display: none !important; }
