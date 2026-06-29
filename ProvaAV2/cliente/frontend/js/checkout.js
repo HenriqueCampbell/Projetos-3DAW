@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataReserva = parametros.get('data');
     const horaReserva = parametros.get('hora');
 
+    console.log("Rastreador 1 - Dados recebidos no Checkout:", {
+    carrinho: carrinhoAtivo ? JSON.parse(carrinhoAtivo) : "Vazio",
+    data: dataReserva,
+    hora: horaReserva
+});
+
     if (!carrinhoAtivo || !dataReserva || !horaReserva) {
         alert("Acesso inválido! Complete as etapas de agendamento primeiro.");
         window.location.href = 'reservar.html';
@@ -20,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     buscarDadosSessaoEValidarCreditos();
 
     function renderizarReciboEsquerdo(dataStr, horaStr) {
+
+        console.log("Rastreador 2 - Entrou na renderização do recibo com:", dataStr, horaStr);
+
         const partes = dataStr.split('-');
         const dataObjeto = new Date(partes[0], partes[1] - 1, partes[2]);
         
@@ -45,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buscarDadosSessaoEValidarCreditos() {
+
+        console.log("Rastreador 3 - Tentando buscar dados da sessão no PHP...");
+
         fetch('../../backend/obter_dados_usuario.php', { credentials: 'include' })
             .then(res => res.json())
             .then(dados => {

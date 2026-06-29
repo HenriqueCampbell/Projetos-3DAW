@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento por Pix - Clínica Estética</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pagamentos.css">
+</head>
+<body style="background-color: #FFF0F6; min-height: 100vh; margin: 0;">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="especialidades.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html" class="ativo">Reservar</a></li>
+                <li><a id="link-login" href="login.html">Menu do Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-painel">
+        <h1 class="titulo-pagina">Pagamento por Pix <img src="../assets/imagens/icone-pix-rosa.png" alt="Pix" class="icone-titulo-pg"></h1>
+
+        <div class="layout-pix-centralizado">
+            <p class="txt-ajuda-pix esquerdo">Escaneie o código no aplicativo de seu banco para efetuar o pagamento.</p>
+
+            <div class="box-pagamento-forma card-pix-container">
+                <h2 class="titulo-cronometro">Você tem 5 minutos para concluir o pagamento.</h2>
+                
+                <div class="wrapper-qrcode">
+                    <img src="../assets/imagens/qrcode-falso.png" alt="QR Code Pix" class="img-qrcode-pix-figma">
+                </div>
+
+                <button id="btn-confirmar-pix" class="btn-confirmar-reserva-pg">Confirmar Reserva</button>
+            </div>
+
+            <p class="txt-ajuda-pix direito">Ao finalizar a transação, clique em "Confirmar Reserva"</p>
+        </div>
+
+        <a href="checkout.html" class="btn-voltar-link">◀ Voltar</a>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Validação de bagagem: impede acesso direto sem passar pelo checkout
+            const carrinhoAtivo = localStorage.getItem('carrinho_ativo');
+            const metodo = localStorage.getItem('pagamento_metodo');
+            const dataReserva = localStorage.getItem('pagamento_data');
+            const horaReserva = localStorage.getItem('pagamento_hora');
+
+            if (!carrinhoAtivo || metodo !== 'pix' || !dataReserva || !horaReserva) {
+                alert("Acesso negado! Por favor, selecione seus serviços e horários primeiro.");
+                window.location.href = 'reservar.html';
+                return;
+            }
+
+            // Se passou na segurança, ativa o clique de confirmação
+            document.getElementById('btn-confirmar-pix').onclick = () => {
+                // Transfere os dados temporários para a bagagem de sucesso
+                localStorage.setItem('reserva_sucesso_data', dataReserva);
+                localStorage.setItem('reserva_sucesso_hora', horaReserva);
+                localStorage.setItem('reserva_sucesso_metodo', 'Pix');
+
+                window.location.href = 'confirmado.html';
+            };
+        });
+    </script>
+</body>
+</html>

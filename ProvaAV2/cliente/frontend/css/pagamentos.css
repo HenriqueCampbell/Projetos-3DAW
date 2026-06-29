@@ -1,0 +1,177 @@
+.container-painel {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.titulo-pagina {
+    color: #D8559B;
+    font-size: 2.3rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icone-titulo-pg {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+/* Caixa com Borda Rosa Padrão */
+.box-pagamento-forma {
+    background: #FFFFFF;
+    border: 2px solid #D8559B;
+    border-radius: 25px;
+    padding: 35px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 25px rgba(194, 24, 91, 0.03);
+}
+
+/* FORMULÁRIO DO CARTÃO */
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.campo-grupo label {
+    color: #D8559B;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.campo-grupo input {
+    border: 2px solid #D8559B;
+    border-radius: 12px;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    color: #6C3A56;
+    outline: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.campo-grupo input::placeholder {
+    color: #D6C2CC;
+}
+
+.linha-campos-duplos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.campo-grupo.curto {
+    width: 100px;
+    margin-bottom: 0;
+}
+
+.checkbox-salvar {
+    color: #D8559B;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.05rem;
+}
+
+.checkbox-salvar input {
+    accent-color: #D8559B;
+    width: 16px;
+    height: 16px;
+}
+
+/* LAYOUT TRÊS COLUNAS DO PIX */
+.layout-pix-centralizado {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.card-pix-container {
+    flex: 1.5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo-cronometro {
+    color: #D8559B;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.wrapper-qrcode {
+    border: 3px solid #D8559B;
+    padding: 10px;
+    border-radius: 15px;
+    background: white;
+    display: inline-block;
+}
+
+.img-qrcode-pix-figma {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+.txt-ajuda-pix {
+    flex: 1;
+    color: #7A4551;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.txt-ajuda-pix.esquerdo { text-align: right; }
+.txt-ajuda-pix.direito { text-align: left; }
+
+/* BOTÃO DE CONFIRMAÇÃO */
+.container-acao-pg {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-confirmar-reserva-pg {
+    background-color: #D8559B;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-confirmar-reserva-pg:hover {
+    background-color: #be3983;
+}
+
+/* LINK VOLTAR */
+.btn-voltar-link {
+    display: inline-block; 
+    margin-top: 25px; 
+    color: #D8559B; 
+    font-weight: 600; 
+    text-decoration: none; 
+    font-size: 1.1rem;
+}
+.btn-voltar-link:hover { color: #6C3A56; }
+
+/* RESPONSIVIDADE DO PIX */
+@media (max-width: 750px) {
+    .layout-pix-centralizado { flex-direction: column; }
+    .txt-ajuda-pix { text-align: center !important; }
+}

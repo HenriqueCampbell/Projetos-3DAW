@@ -26,7 +26,7 @@
     </header>
 
     <main class="container-painel">
-        <h1 class="titulo-pagina">Pagamento por Cartão <img src="../assets/imagens/icone-cartao.png" alt="Cartão" class="icone-titulo-pg"></h1>
+        <h1 class="titulo-pagina">Pagamento por Cartão <img src="../assets/imagens/icone-cartao-rosa.png" alt="Cartão" class="icone-titulo-pg"></h1>
 
         <form id="form-cartao-checkout" class="box-pagamento-forma">
             <div class="campo-grupo">
@@ -64,11 +64,32 @@
     </main>
 
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Validação de bagagem: impede acesso direto sem passar pelo checkout
+        const carrinhoAtivo = localStorage.getItem('carrinho_ativo');
+        const metodo = localStorage.getItem('pagamento_metodo');
+        const dataReserva = localStorage.getItem('pagamento_data');
+        const horaReserva = localStorage.getItem('pagamento_hora');
+
+        if (!carrinhoAtivo || metodo !== 'cartao' || !dataReserva || !horaReserva) {
+            alert("Acesso negado! Por favor, selecione seus serviços e horários primeiro.");
+            window.location.href = 'reservar.html';
+            return;
+        }
+
+        // Se passou na segurança, ativa o formulário
         document.getElementById('form-cartao-checkout').addEventListener('submit', (e) => {
             e.preventDefault();
-            // Simplesmente avança para a página de sucesso
+            
+            // Transfere os dados temporários para a bagagem de sucesso
+            localStorage.setItem('reserva_sucesso_data', dataReserva);
+            localStorage.setItem('reserva_sucesso_hora', horaReserva);
+            localStorage.setItem('reserva_sucesso_metodo', 'Cartão de Crédito/Débito');
+
             window.location.href = 'confirmado.html';
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
