@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Estética - Checkout</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+<body style="background-color: #FFF0F6; min-height: 100vh; margin: 0;">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="especialidades.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html" class="ativo">Reservar</a></li>
+                <li><a id="link-login" href="login.html">Menu do Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-painel">
+        <!-- Cabeçalho Superior Direito Dinâmico -->
+        <div class="topo-checkout-usuario">
+            <h1 class="titulo-pagina">Checkout <img src="../assets/imagens/icone-recibo.png" alt="Checkout" class="icone-titulo-checkout"></h1>
+            <div class="info-moeda-perfil">
+                <div class="box-credito-topo">
+                    <img src="../assets/imagens/icone-credito.png" alt="Créditos" class="img-mini-moeda">
+                    <span id="saldo-topo-usuario">0</span>
+                </div>
+                <div class="box-nome-topo">
+                    <img src="../assets/imagens/icone-avatar-padrao.png" alt="Perfil" class="img-mini-avatar">
+                    <span id="nome-topo-usuario">Carregando...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-checkout">
+            
+            <!-- COLUNA ESQUERDA: O Recibo Estilizado -->
+            <div class="coluna-recibo-esquerda">
+                <p id="recibo-data-hora" class="data-hora-recibo">Carregando data e hora...</p>
+                <p class="label-servicos-reservados">Serviços Reservados:</p>
+                
+                <div id="lista-itens-recibo" class="lista-itens-recibo">
+                    <!-- Injetado via JS -->
+                </div>
+
+                <div class="linha-divisoria-total"></div>
+
+                <div class="box-valores-totais">
+                    <span>Total:</span>
+                    <strong id="texto-total-valores">0 créditos ou R$ 0,00</strong>
+                </div>
+
+                <p class="politica-reembolso">
+                    Cancelamentos realizados em até 3 dias após a reserva garantem reembolso integral. Após esse período, será concedido um crédito de 50% do valor pago para uso em futuras reservas.
+                </p>
+            </div>
+
+            <!-- COLUNA DIREITA: Métodos de Pagamento -->
+            <div class="coluna-metodos-direita">
+                <h2 class="titulo-metodos">Método de Pagamento</h2>
+
+                <div class="grid-opcoes-pagamento">
+                    <!-- Caixa 1: Créditos (Com controle dinâmico por JS) -->
+                    <div id="card-pagamento-credito" class="card-metodo-box desativado">
+                        <div class="container-interno-card">
+                            <img src="../assets/imagens/icone-credito-corAlternativa.png" alt="Créditos" class="img-metodo-icone">
+                        </div>
+                        <span class="nome-metodo">Créditos</span>
+                        <div id="info-status-credito" class="status-credito-detalhe">
+                            <span class="txt-insuficiente">Saldo Insuficiente</span>
+                            <span class="txt-valores-sub">Valor em créditos: <span class="cor-rosa" id="custo-credito-info">0</span></span>
+                            <span class="txt-valores-sub">Seu saldo: <span class="cor-rosa" id="saldo-disponivel-info">0</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Caixa 2: Cartão de Crédito/Débito -->
+                    <div id="card-pagamento-cartao" class="card-metodo-box ativo-rosa">
+                        <div class="container-interno-card">
+                            <img src="../assets/imagens/icone-cartao.png" alt="Cartão" class="img-metodo-icone">
+                        </div>
+                        <span class="nome-metodo">Cartão de Crédito ou Débito</span>
+                    </div>
+
+                    <!-- Caixa 3: Pix -->
+                    <div id="card-pagamento-pix" class="card-metodo-box ativo-rosa">
+                        <div class="container-interno-card">
+                            <img src="../assets/imagens/icone-pix.png" alt="Pix" class="img-metodo-icone">
+                        </div>
+                        <span class="nome-metodo">Pix</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Botão Voltar Geral Consertado -->
+        <a href="agendamento.html" id="btn-voltar-agendamento" class="btn-voltar-link">◀ Voltar</a>
+    </main>
+
+    <!-- Modal Pop-up para Confirmação de Gasto por Créditos -->
+    <div id="modal-confirmacao-credito" class="modal-sobreposicao oculto">
+        <div class="modal-caixa-conteudo">
+            <h3>Confirmar Agendamento</h3>
+            <p id="txt-pergunta-modal">Tem certeza que deseja gastar seus X créditos nessa compra?</p>
+            <div class="modal-botoes-linha">
+                <button id="btn-modal-cancelar" class="btn-modal-secundario">Não, voltar</button>
+                <button id="btn-modal-confirmar" class="btn-modal-primario">Sim, confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="container-toasts"></div>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/checkout.js"></script>
+    
+</body>
+</html>

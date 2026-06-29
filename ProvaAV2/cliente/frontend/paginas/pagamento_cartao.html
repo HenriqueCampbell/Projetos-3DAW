@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Estética - Pagamento por Cartão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pagamentos.css">
+</head>
+<body style="background-color: #FFF0F6; min-height: 100vh; margin: 0;">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="especialidades.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html" class="ativo">Reservar</a></li>
+                <li><a id="link-login" href="login.html">Menu do Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-painel">
+        <h1 class="titulo-pagina">Pagamento por Cartão <img src="../assets/imagens/icone-cartao.png" alt="Cartão" class="icone-titulo-pg"></h1>
+
+        <form id="form-cartao-checkout" class="box-pagamento-forma">
+            <div class="campo-grupo">
+                <label for="num-cartao">Número do Cartão</label>
+                <input type="text" id="num-cartao" placeholder="0000 0000 0000 0000" required>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="nome-titular">Nome do Titular</label>
+                <input type="text" id="nome-titular" placeholder="Ex: JOAO C SILVA" required>
+            </div>
+
+            <div class="linha-campos-duplos">
+                <div class="campo-grupo curto">
+                    <label for="vencimento">Vencimento</label>
+                    <input type="text" id="vencimento" placeholder="MM/AA" maxlength="5" required>
+                </div>
+
+                <div class="campo-grupo curto">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="000" maxlength="4" required>
+                </div>
+
+                <label class="checkbox-salvar">
+                    <input type="checkbox" id="salvar-cartao"> Salvar cartão?
+                </label>
+            </div>
+
+            <div class="container-acao-pg">
+                <button type="submit" class="btn-confirmar-reserva-pg">Confirmar Reserva</button>
+            </div>
+        </form>
+
+        <a href="checkout.html" class="btn-voltar-link">◀ Voltar</a>
+    </main>
+
+    <script>
+        document.getElementById('form-cartao-checkout').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simplesmente avança para a página de sucesso
+            window.location.href = 'confirmado.html';
+        });
+    </script>
+</body>
+</html>

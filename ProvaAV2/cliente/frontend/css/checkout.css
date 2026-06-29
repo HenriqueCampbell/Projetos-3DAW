@@ -1,0 +1,303 @@
+/* ==========================================================================
+   DEFINIÇÕES GERAIS E ESTRUTURA
+   ========================================================================== */
+.container-painel {
+    max-width: 1050px; /* Aumentado um pouco para dar mais respiro global */
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.topo-checkout-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    border-bottom: 2px dashed rgba(216, 85, 155, 0.15);
+    padding-bottom: 20px;
+}
+
+.titulo-pagina {
+    color: #D8559B;
+    font-size: 2.5rem; /* Um pouco maior e imponente */
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icone-titulo-checkout {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   BOOST NO TOPO SUPERIOR DIREITO (MUITO MAIS DESTAQUE)
+   ========================================================================== */
+.info-moeda-perfil {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Mais espaço entre moedas e perfil */
+}
+
+.box-credito-topo, .box-nome-topo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6C3A56;
+    font-size: 1.3rem; /* Boost no tamanho do texto (era 1.1) */
+    font-weight: 600;
+}
+
+.box-credito-topo {
+    background: rgba(216, 85, 155, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: #D8559B; /* Destaca os créditos em rosa */
+}
+
+.img-mini-moeda {
+    width: 28px; /* Ícones maiores */
+    height: 28px;
+    object-fit: contain;
+}
+
+.img-mini-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #D8559B;
+}
+
+/* ==========================================================================
+   LAYOUT DO CARD PRINCIPAL
+   ========================================================================== */
+.layout-checkout {
+    display: flex;
+    background: #FFFFFF;
+    border: 2px solid #D8559B;
+    border-radius: 25px;
+    overflow: hidden;
+    min-height: 450px;
+    box-shadow: 0 15px 35px rgba(194, 24, 91, 0.04);
+}
+
+/* COLUNA ESQUERDA - RECIBO */
+.coluna-recibo-esquerda {
+    flex: 1;
+    border-right: 2px solid #D8559B;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+}
+
+.data-hora-recibo {
+    color: #6C3A56;
+    font-size: 1.25rem; /* Mais visível */
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.label-servicos-reservados {
+    color: #9B356F;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+}
+
+.lista-itens-recibo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item-recibo-linha {
+    color: #6C3A56;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.item-recibo-linha span {
+    color: #D8559B;
+    font-weight: 700;
+}
+
+.linha-divisoria-total {
+    border-top: 2px solid #6C3A56;
+    margin: 20px 0;
+    width: 90%;
+    opacity: 0.8;
+}
+
+.box-valores-totais {
+    color: #6C3A56;
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+}
+
+.box-valores-totais strong {
+    color: #C2185B;
+    margin-left: 10px;
+    font-size: 1.25rem;
+}
+
+.politica-reembolso {
+    color: #9B356F;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   COLUNA DIREITA - MÉTODOS DE PAGAMENTO PREMIUM
+   ========================================================================== */
+.coluna-metodos-direita {
+    flex: 1.1;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+}
+
+.titulo-metodos {
+    color: #D8559B;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+}
+
+.grid-opcoes-pagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* As Caixinhas Básicas */
+.card-metodo-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
+}
+
+.container-interno-card {
+    width: 130px;
+    height: 75px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.img-metodo-icone {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* BOOST NOS TEXTOS DO CARTÃO E PIX */
+.nome-metodo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem; /* Aumentado consideravelmente para dar presênca! */
+    max-width: 240px;  /* Deixa o texto fluir melhor em duas linhas */
+    line-height: 1.2;
+}
+
+/* ESTADO SELECIONÁVEL / ATIVO (Dá vida e movimento ao passar o mouse!) */
+.card-metodo-box.ativo-rosa .container-interno-card {
+    background-color: #D8559B;
+}
+.card-metodo-box.ativo-rosa .nome-metodo {
+    color: #D8559B;
+}
+.card-metodo-box.ativo-rosa:hover {
+    transform: translateY(-3px); /* Pulinho interativo */
+    box-shadow: 0 8px 20px rgba(216, 85, 155, 0.12); /* Sombra neon sutil */
+}
+.card-metodo-box.ativo-rosa:hover .container-interno-card {
+    background-color: #be3983;
+}
+
+/* ESTADO DESATIVADO (Crédito Insuficiente) */
+.card-metodo-box.desativado {
+    cursor: not-allowed;
+}
+.card-metodo-box.desativado .container-interno-card {
+    background-color: #BDB2B6;
+}
+.card-metodo-box.desativado .nome-metodo {
+    color: #BDB2B6;
+}
+
+/* Detalhes de valores de Créditos ao lado */
+.status-credito-detalhe {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: #9B356F;
+    margin-left: auto;
+    text-align: right;
+    line-height: 1.4;
+}
+
+.txt-insuficiente {
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.txt-valores-sub {
+    font-size: 0.85rem;
+    color: #6C3A56;
+}
+
+.cor-rosa {
+    color: #D8559B;
+    font-weight: 600;
+}
+
+/* Link Voltar Geral */
+.btn-voltar-link {
+    display: inline-block; 
+    margin-top: 25px; 
+    color: #D8559B; 
+    font-weight: 600; 
+    text-decoration: none; 
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+.btn-voltar-link:hover { color: #6C3A56; }
+
+/* ==========================================================================
+   MODAL INTERNO E TOASTS
+   ========================================================================== */
+.modal-sobreposicao {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(108, 58, 86, 0.4); display: flex; align-items: center; justify-content: center; z-index: 3000; backdrop-filter: blur(4px);
+}
+.modal-caixa-conteudo {
+    background: white; padding: 35px; border-radius: 22px; border: 2px solid #D8559B; width: 90%; max-width: 420px; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.modal-caixa-conteudo h3 { margin: 0 0 15px 0; color: #D8559B; font-size: 1.5rem; }
+.modal-caixa-conteudo p { color: #6C3A56; font-size: 1.1rem; margin-bottom: 28px; line-height: 1.5; }
+.modal-botoes-linha { display: flex; gap: 15px; justify-content: center; }
+.btn-modal-secundario { background: none; border: 1px solid #D8559B; color: #D8559B; padding: 12px 24px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+.btn-modal-primario { background: #D8559B; border: none; color: white; padding: 12px 24px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+.btn-modal-primario:hover { background: #be3983; }
+.oculto { display: none !important; }
+.toast-notificacao {
+    position: fixed; bottom: 20px; left: 20px; background-color: #8B3973; color: white; padding: 15px 25px; border-radius: 10px; font-weight: 600; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: subirToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes subirToast { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
