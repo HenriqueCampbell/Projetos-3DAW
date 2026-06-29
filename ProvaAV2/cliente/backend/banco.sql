@@ -1,5 +1,5 @@
 -- 1. Tabela de Usuários
-CREATE TABLE usuarios (
+CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     sobrenome VARCHAR(50) NOT NULL,
@@ -11,35 +11,34 @@ CREATE TABLE usuarios (
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2. Tabela de Favoritos
-CREATE TABLE favoritos (
+-- 2. Tabela de Favoritos (Vínculo de profissionais favoritados)
+CREATE TABLE IF NOT EXISTS favoritos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
     funcionario_id INT NOT NULL,
-
     UNIQUE KEY unico_favorito (usuario_id, funcionario_id),
-
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
--- 3. Tabela de Agendamentos
-CREATE TABLE agendamentos (
+-- 3. Tabela de Agendamentos (Registro Mestre)
+CREATE TABLE IF NOT EXISTS agendamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
     data_hora DATETIME NOT NULL,
-    duracao_estimada_minutos INT, 
-    valor_total_centavos INT,     
-    status VARCHAR(20) DEFAULT 'pendente',
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    duracao_estimada_minutos INT NULL, 
+    valor_total_centavos INT NOT NULL,     
+    forma_pagamento VARCHAR(50) NOT NULL, -- 'creditos', 'pix' ou 'cartao'
+    status_reserva VARCHAR(20) DEFAULT 'concluido',
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
--- 4. Tabela de Itens (O detalhe de cada serviço)
-CREATE TABLE agendamento_itens (
+-- 4. Tabela de Itens do Agendamento (O detalhe de cada serviço)
+CREATE TABLE IF NOT EXISTS agendamento_itens (
     id INT AUTO_INCREMENT PRIMARY KEY,
     agendamento_id INT NOT NULL,
     servico_id INT NOT NULL,      
-    profissional_id INT NOT NULL, 
-    valor_item_centavos INT,
-    duracao_item_minutos INT,
+    profissional_id INT NULL, -- Aceita nulo caso o filtro fique desativado
+    preco_pago_centavos INT NOT NULL,
+    duracao_item_minutos INT NULL,
     FOREIGN KEY (agendamento_id) REFERENCES agendamentos(id) ON DELETE CASCADE
 );

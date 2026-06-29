@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva Concluída! - Clínica Estética</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/confirmado.css">
+</head>
+<body style="background-color: #FFF0F6; min-height: 100vh; margin: 0;">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="especialidades.html">Serviços</a></li>
+                <li><a href="profissionais.html">Profissionais</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="reservar.html" class="ativo">Reservar</a></li>
+                <li><a id="link-login" href="login.html">Menu do Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-sucesso">
+        <h1 class="titulo-sucesso">Reserva Concluída!</h1>
+
+        <div class="card-tabela-sucesso">
+            <table class="tabela-resumo-agendamento">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela-resumo">
+                    </tbody>
+            </table>
+
+            <p class="txt-agradecimento-sucesso">
+                Tudo certo! Sua reserva foi realizada com sucesso. Você pode consultar os detalhes a qualquer momento acessando o menu do usuário. Um lembrete será enviado antes do horário agendado. Obrigado por escolher nossos serviços!
+            </p>
+        </div>
+    </main>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/confirmado.js"></script>
+    
+</body>
+</html>

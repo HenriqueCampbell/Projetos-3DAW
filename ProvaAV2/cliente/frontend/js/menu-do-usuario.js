@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 1. Preenche dados básicos e créditos
+        // 1. Preenche dados básicos e créditos reais do usuário
         const primeiroNome = dadosUsuario.nome.split(' ')[0];
         document.getElementById('nome-perfil').innerText = primeiroNome;
         document.getElementById('qtd-creditos').innerText = dadosUsuario.creditos;
@@ -23,29 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // 2. Atualiza os relógios dinâmicos da trilha de fidelidade
         atualizarTrilhaFidelidade(dadosUsuario.reservas_concluidas);
 
-        // 3. Preenche os agendamentos ativos se houver registros
-        const containerReservas = document.getElementById('container-reservas');
-        if (dadosUsuario.reservas_ativas && dadosUsuario.reservas_ativas.length > 0) {
-            containerReservas.innerHTML = '';
-            
-            dadosUsuario.reservas_ativas.forEach(reserva => {
-                const cardReserva = document.createElement('div');
-                cardReserva.style.width = '100%';
-                cardReserva.style.textAlign = 'left';
-                cardReserva.innerHTML = `
-                    <span style="background: rgba(216,85,155,0.1); color:#D8559B; padding:2px 8px; border-radius:10px; font-size:0.8rem; font-weight:600;">Agendado</span>
-                    <h4 style="color:#6C3A56; margin:8px 0 4px 0;">Código Profissional: ${reserva.profissional_nome}</h4>
-                    <p style="color:#9B356F; font-size:0.9rem; margin:0 0 15px 0;">${reserva.data} às ${reserva.horario}<br>Serviço ID: ${reserva.servico_nome}</p>
-                `;
-                containerReservas.appendChild(cardReserva);
-            });
-            
-            const btnMais = document.createElement('button');
-            btnMais.className = 'btn-reservar-agora';
-            btnMais.innerText = 'Novo Agendamento';
-            btnMais.onclick = () => window.location.href='reservar.html';
-            containerReservas.appendChild(btnMais);
-        }
+        // 3. Carrega o histórico de agendamentos do usuário
+        carregarHistoricoAgendamentos();
 
         // 4. Monta o Grid de Favoritos em duas colunas com o efeito Glassmorphism
         const containerFavoritos = document.getElementById('container-favoritos');
@@ -81,17 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="btn-reservar-profissional" onclick="window.location.href='reservar.html?profissional=${f.id}'">Reservar com ${f.nome}</button>
                 `;
                 
-
                 const estrela = card.querySelector('.estrela-favorito');
                 estrela.addEventListener('click', (evento) => {
                     evento.stopPropagation();
-
                     console.log("Clique na estrela detectado! Tentando remover o funcionário ID:", f.id);
                     
-                    // Aplica o efeito visual puff
                     card.classList.add('remover-puff');
                     
-                    // Avisa o banco de dados via fetch
                     fetch('../../backend/remover_favorito.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -156,7 +131,7 @@ function atualizarTrilhaFidelidade(quantidadeConcluidas) {
         if (i <= quantidadeConcluidas) {
             blocoEtapa.classList.add('concluida');
             imagem.src = '../assets/imagens/icone-fidelidade-confirmada.png';
-            texto.innerText = `${i}ª Reserva Feita!`;
+            text.innerText = `${i}ª Reserva Feita!`;
         } else {
             blocoEtapa.classList.remove('concluida');
             imagem.src = '../assets/imagens/icone-fidelidade-incompleta.png';
@@ -172,4 +147,72 @@ function atualizarTrilhaFidelidade(quantidadeConcluidas) {
             etapa4.classList.remove('concluida');
         }
     }
+}
+
+function carregarHistoricoAgendamentos() {
+    // 1. Carrega o JSON de serviços para traduzir os IDs numéricos em nomes de texto reais
+    fetch('../dados/servicos.json')
+        .then(res => res.json())
+        .then(categorias => {
+            const mapaServicos = {};
+            categorias.forEach(cat => {
+                cat.itens.forEach(item => {
+                    mapaServicos[item.id] = item.nome;
+                });
+            });
+
+            // 2. Busca os agendamentos reais do usuário logado no banco
+            return fetch('../../backend/obter_agendamentos.php', { credentials: 'include' })
+                .then(res => res.json())
+                .then(dados => {
+                    const containerReservas = document.getElementById('container-reservas');
+                    if (!containerReservas) return;
+
+                    // Se a requisição deu certo e tem registros no banco
+                    if (dados.sucesso && dados.agendamentos && dados.agendamentos.length > 0) {
+                        containerReservas.innerHTML = '';
+                        
+                        dados.agendamentos.forEach(reserva => {
+                            // Quebra a string TIMESTAMP do banco (YYYY-MM-DD HH:MM:SS) em data e hora limpas
+                            const partesDataHora = reserva.data_hora.split(' ');
+                            const dataBanco = partesDataHora[0]; // YYYY-MM-DD
+                            const horarioBanco = partesDataHora[1].substring(0, 5); // HH:MM
+
+                            // Converte o formato do banco YYYY-MM-DD para o padrão visual DD/MM/YYYY
+                            const dataFormatada = dataBanco.split('-').reverse().join('/');
+
+                            // Transforma a lista de IDs de serviços vinda do banco em uma string de nomes reais do seu JSON
+                            const nomesServicos = reserva.itens.map(it => mapaServicos[it.servico_id] || "Serviço").join(', ');
+
+                            // Cria o card mantendo EXATAMENTE o seu estilo e tags originais do Figma!
+                            const cardReserva = document.createElement('div');
+                            cardReserva.style.width = '100%';
+                            cardReserva.style.textAlign = 'left';
+                            cardReserva.innerHTML = `
+                                <span style="background: rgba(216,85,155,0.1); color:#D8559B; padding:2px 8px; border-radius:10px; font-size:0.8rem; font-weight:600;">Agendado</span>
+                                <h4 style="color:#6C3A56; margin:8px 0 4px 0;">Forma de Pagamento: ${reserva.forma_pagamento.toUpperCase()}</h4>
+                                <p style="color:#9B356F; font-size:0.9rem; margin:0 0 15px 0;">
+                                    ${dataFormatada} às ${horarioBanco}<br>
+                                    Serviços: ${nomesServicos}
+                                </p>
+                            `;
+                            containerReservas.appendChild(cardReserva);
+                        });
+                        
+                        // Injeta o seu botão original de Novo Agendamento no final de todas as listagens
+                        const btnMais = document.createElement('button');
+                        btnMais.className = 'btn-reservar-agora';
+                        btnMais.innerText = 'Novo Agendamento';
+                        btnMais.onclick = () => window.location.href='reservar.html';
+                        containerReservas.appendChild(btnMais);
+                    } else {
+                        // Caso não encontre nenhum agendamento na tabela do banco
+                        containerReservas.innerHTML = `
+                            <p style="color:#9B356F; font-size:0.9rem; text-align:center; margin: 20px 0;">Você não possui nenhum agendamento ativo.</p>
+                            <button class="btn-reservar-agora" onclick="window.location.href='reservar.html'">Reservar Agora</button>
+                        `;
+                    }
+                });
+        })
+        .catch(err => console.error("Erro catastrófico ao sincronizar o histórico do menu:", err));
 }
